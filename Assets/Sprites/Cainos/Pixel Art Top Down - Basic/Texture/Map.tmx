@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" infinite="0" nextlayerid="10" nextobjectid="38">
+<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" infinite="0" nextlayerid="10" nextobjectid="42">
  <tileset firstgid="1" name="TX Plant" tilewidth="32" tileheight="32" tilecount="256" columns="16">
   <image source="TX Plant.png" width="512" height="512"/>
  </tileset>
@@ -417,5 +417,9 @@
   <object id="37" x="358.455" y="1984.55">
    <polygon points="0,0 51.1818,0.0909091 53,1.90909 52.9091,6.18182 49,10.3636 48.3636,10.9091 48.0909,14.7273 48.2727,15.0909 49,15.6364 49,18 48.3636,19 46.8182,19.5455 46.2727,20.2727 44.7273,20.2727 44.3636,21.3636 42.8182,21.0909 42.3636,22.2727 40.6364,22.2727 40.6364,23.2727 32.5455,23 30.7273,20.8182 31,19.4545 26.7273,19 26.1818,17.8182 22.8182,18 22.4545,18.1818 22.5455,17 18.5455,17 19,15.8182 18.4545,15.8182 14.6364,16 14.3636,15 12.5455,15.0909 12.4545,14 10.6364,13.9091 9,11.7273 8.72727,12.0909 7.36364,13.8182 2.63636,13.9091 1.54545,12.4545 -1.18182,12.0909 -2.54545,10.2727 -3.09091,4.63636 -1,2.54545 -0.181818,1.54545"/>
   </object>
+  <object id="38" x="3201" y="-1.5" width="27" height="3248.5"/>
+  <object id="39" x="-31.5" y="3198.5" width="3230.5" height="33"/>
+  <object id="40" x="-21.5" y="-30.5" width="22" height="3229.5"/>
+  <object id="41" x="-0.5" y="-17.5" width="3243.5" height="17"/>
  </objectgroup>
 </map>
