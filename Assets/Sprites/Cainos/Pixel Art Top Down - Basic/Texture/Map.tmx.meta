@@ -8,10 +8,10 @@ ScriptedImporter:
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 1fa25d03934ea624a82bf2fcee6f0873, type: 3}
-  missingFiles: []
+  missingFiles:
+  - collision.tsx
   errors:
-  - Errors detected in tileset 'collision.tsx'. Check the tileset inspector for more
-    details. Your map may be broken until these are fixed.
+  - 'Missing tileset asset: collision.tsx'
   warnings:
   - Tileset 'TX Plant' is an embedded tileset. Exported tilesets are preferred.
   missingSortingLayers: []
@@ -21,8 +21,8 @@ ScriptedImporter:
   pixelsPerUnit: 100
   edgesPerEllipse: 32
   numberOfObjectsImported: 516
-  tilesAsObjects: 0
-  sortingMode: 0
+  tilesAsObjects: 1
+  sortingMode: 1
   isIsometric: 0
   customImporterClassName: 
   internalTilesets:
