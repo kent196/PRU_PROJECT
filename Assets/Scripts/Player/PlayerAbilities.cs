@@ -12,7 +12,7 @@ public class PlayerAbilities : MonoBehaviour
     Rigidbody2D rigidbody2D;
     Animator anim;
 
-    private float cooldownTime = .15f;
+    private float cooldownTime = .5f;
     private float attackCooldown;
     // Start is called before the first frame update
     void Start()
@@ -54,7 +54,6 @@ public class PlayerAbilities : MonoBehaviour
             Destroy(projectileShooting, 3.0f);
             anim.SetTrigger("Attacking");
             attackCooldown = cooldownTime;
-
         }
 
     }

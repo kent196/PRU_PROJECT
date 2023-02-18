@@ -5,10 +5,12 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] private Transform player;
+    [SerializeField] private LayerMask playerLayer;
 
     Animator anim;
     Rigidbody2D rb;
 
+    float radius = 0.4f;
     float speed = 1f;
     Vector2 direction;
     // Start is called before the first frame update
@@ -22,7 +24,17 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Moving();
+        if (PlayerInRange())
+        {
+            rb.velocity = Vector2.zero;
+            GetAnimation();
+        }
+        else
+        {
+            Moving();
+            GetAnimation();
+        }
+        
     }
 
     void Moving()
@@ -30,17 +42,20 @@ public class EnemyMovement : MonoBehaviour
         direction = player.position - transform.position;
         direction.Normalize();
         rb.velocity = direction * speed;
-        GetAnimation();
+        
     }
-
     void GetAnimation()
     {
-        anim.SetFloat("moveX",direction.x);
-        anim.SetFloat("moveY",direction.y);
-        if (direction.x == 1 || direction.x == -1 || direction.y == 1 || direction.y == -1)
+        anim.SetFloat("moveX", direction.x);
+        anim.SetFloat("moveY", direction.y);
+        if (direction.x > 0 || direction.x < 0 || direction.y > 0 || direction.y < 0)
         {
             anim.SetFloat("lastMoveX", direction.x);
             anim.SetFloat("lastMoveY", direction.y);
         }
+    }
+    bool PlayerInRange()
+    {
+        return Physics2D.OverlapCircle(transform.position, radius, playerLayer);
     }
 }
