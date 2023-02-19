@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 7052076974838082541}
   - component: {fileID: 5023121756428833852}
   - component: {fileID: 226749325123983592}
+  - component: {fileID: -1758305046855110728}
   m_Layer: 22
   m_Name: Arrow
-  m_TagString: Untagged
+  m_TagString: Arrow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,7 +107,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!60 &226749325123983592
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -152,3 +153,15 @@ PolygonCollider2D:
       - {x: 0.087129116, y: 0.009267092}
       - {x: 0.08669138, y: 0.022103965}
       - {x: 0.06910753, y: 0.023414493}
+--- !u!114 &-1758305046855110728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2271805543518963811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2206cdfc82502c04f91e1d4b04d97fbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

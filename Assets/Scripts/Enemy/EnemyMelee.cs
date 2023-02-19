@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyMelee : MonoBehaviour
 {
+    HealthStats healthStats;
+
     [SerializeField] private LayerMask playerLayer;
 
     [SerializeField] private float radius = 1f;
@@ -14,6 +16,7 @@ public class EnemyMelee : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        healthStats = new HealthStats(20, 20);
         //playerBehaviour = FindObjectOfType<PlayerBehaviour>();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
@@ -23,6 +26,7 @@ public class EnemyMelee : MonoBehaviour
     void Update()
     {
         Attack();
+        Dead();
     }
 
     bool PlayerInRange()
@@ -39,6 +43,22 @@ public class EnemyMelee : MonoBehaviour
         else
         {
             anim.SetBool("Attacking", false);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Arrow"))
+        {
+            healthStats.DamageUnit(5);
+        }
+    }
+
+    void Dead()
+    {
+        if (healthStats.Health == 0)
+        {
+            Destroy(gameObject);
         }
     }
 
