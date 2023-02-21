@@ -15,7 +15,8 @@ GameObject:
   - component: {fileID: 2806545183240668348}
   - component: {fileID: 2806545183240668350}
   - component: {fileID: 2806545183240668339}
-  m_Layer: 0
+  - component: {fileID: 42941687}
+  m_Layer: 7
   m_Name: Goblin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,7 +144,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.010643005, y: -0.09578751}
+  m_Offset: {x: 0.020914793, y: -0.09578751}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -154,7 +155,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.21965885, y: 0.47509173}
+  m_Size: {x: 0.28715944, y: 0.47509173}
   m_EdgeRadius: 0
 --- !u!114 &2806545183240668350
 MonoBehaviour:
@@ -187,4 +188,15 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
-  radius: 0.4
+--- !u!114 &42941687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2806545183240668346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b84cd15a98a328c48883ff823e5ecc10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
