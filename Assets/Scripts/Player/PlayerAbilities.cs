@@ -6,8 +6,6 @@ public class PlayerAbilities : MonoBehaviour
 {
     [SerializeField] private GameObject projectilePrefab;
     private float projectileSpeed = 5.0f;
-    private float projectileSpeedX = 5.0f;
-    private float projectileSpeedY = 0.0f;
 
     Rigidbody2D rigidbody2D;
     Animator anim;

@@ -22,6 +22,7 @@ public class SpawnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        enemyToSpawn = new List<GameObject>();
         enemyTotalPerWave = 10;
         enemyTotalSpawned = 0;
         spawnPos = new Vector2[]
@@ -52,8 +53,6 @@ public class SpawnManager : MonoBehaviour
 
     void GetEnemyTypeInWave(int currWave)
     {
-        enemyToSpawn = new List<GameObject>();
-
         while (enemyToSpawn.Count < currWave)
         {
             if (currWave == waveTotal)
@@ -78,8 +77,6 @@ public class SpawnManager : MonoBehaviour
             }
 
         }
-
-
     }
 
     IEnumerator SpawnEnemy()
