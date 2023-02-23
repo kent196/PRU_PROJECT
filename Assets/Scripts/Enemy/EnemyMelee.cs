@@ -10,9 +10,12 @@ public class EnemyMelee : MonoBehaviour
 
     Rigidbody2D rb;
     Animator anim;
+
+    public int Damage { get; private set; }
     // Start is called before the first frame update
     void Start()
     {
+        Damage = EnemyDamage();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
     }
@@ -43,5 +46,29 @@ public class EnemyMelee : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(transform.position, radius);
+    }
+
+    private int EnemyDamage()
+    {
+        if (this.gameObject.CompareTag("Goblin"))
+        {
+            return 15;
+        }
+        else if (this.gameObject.CompareTag("Orc"))
+        {
+            return 20;
+        }
+        else if (this.gameObject.CompareTag("Mummy"))
+        {
+            return 10;
+        }
+        else if (this.gameObject.CompareTag("Skelly"))
+        {
+            return 5;
+        }
+        else
+        {
+            return 0;
+        }
     }
 }

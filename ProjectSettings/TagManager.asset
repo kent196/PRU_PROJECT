@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Arrow
+  - Goblin
+  - Orc
+  - Mummy
+  - Skelly
   layers:
   - Default
   - TransparentFX

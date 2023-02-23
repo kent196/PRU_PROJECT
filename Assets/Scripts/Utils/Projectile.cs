@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] float strength = 1000f;
-
     Vector2 forceDirection;
     Rigidbody2D rb;
     [SerializeField]LayerMask knockBackLayer;
@@ -20,7 +18,6 @@ public class Projectile : MonoBehaviour
         if (collision.gameObject.layer == knockBackLayer)
         {
             forceDirection = (collision.gameObject.transform.position - transform.position).normalized;
-            collision.gameObject.GetComponent<Rigidbody2D>().AddForce(forceDirection * strength, ForceMode2D.Force);
             Destroy(gameObject);
         }
         else

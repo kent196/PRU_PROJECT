@@ -10,17 +10,21 @@ public class EnemyBehaviour : MonoBehaviour
     Rigidbody2D rb;
 
     [SerializeField] private UnityEvent OnBegin,OnDone;
+    int health, maxHealth;
+    PlayerAbilities playerability;
 
     // Start is called before the first frame update
     void Start()
     {
-        healthStats = new HealthStats(20, 20);
+        EnemyType();
+        healthStats = new HealthStats(health,maxHealth);
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        playerability=FindObjectOfType<PlayerAbilities>();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         Dead();
     }
@@ -34,7 +38,8 @@ public class EnemyBehaviour : MonoBehaviour
             anim.SetTrigger("Hit");
             Vector2 direction = (transform.position - collision.gameObject.transform.position).normalized;
             rb.AddForce(direction * 2, ForceMode2D.Impulse);
-            healthStats.DamageUnit(5);
+            healthStats.DamageUnit(playerability.Damage);
+            Debug.Log(playerability.Damage);
             StartCoroutine(Reset());
         }
     }
@@ -48,7 +53,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     void Dead()
     {
-        if (healthStats.Health == 0)
+        if (healthStats.Health <= 0)
         {
             anim.SetBool("Dead", true);
         }
@@ -57,5 +62,29 @@ public class EnemyBehaviour : MonoBehaviour
     void DestroyEnemy()
     {
         Destroy(gameObject);
+    }
+
+    void EnemyType()
+    {
+        if (this.gameObject.CompareTag("Goblin"))
+        {
+            health = 20;
+            maxHealth = 20;
+        }
+        else if (this.gameObject.CompareTag("Orc"))
+        {
+            health = 100;
+            maxHealth = 100;
+        }
+        else if (this.gameObject.CompareTag("Mummy"))
+        {
+            health = 20;
+            maxHealth = 20;
+        }
+        else if (this.gameObject.CompareTag("Skelly"))
+        {
+            health = 10;
+            maxHealth = 10;
+        }
     }
 }
