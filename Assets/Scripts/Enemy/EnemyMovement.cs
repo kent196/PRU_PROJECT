@@ -10,7 +10,7 @@ public class EnemyMovement : MonoBehaviour
     Animator anim;
     Rigidbody2D rb;
 
-    float radius = 0.4f;
+    float radius = 0.5f;
     float speed = 1f;
     Vector2 direction;
     // Start is called before the first frame update
@@ -24,7 +24,7 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (PlayerInRange())
+        if (PlayerInRange() || anim.GetBool("Hit") == true || anim.GetBool("Dead") == true)
         {
             rb.velocity = Vector2.zero;
             GetAnimation();
@@ -34,7 +34,7 @@ public class EnemyMovement : MonoBehaviour
             Moving();
             GetAnimation();
         }
-        
+
     }
 
     void Moving()
@@ -42,7 +42,7 @@ public class EnemyMovement : MonoBehaviour
         direction = player.position - transform.position;
         direction.Normalize();
         rb.velocity = direction * speed;
-        
+
     }
     void GetAnimation()
     {
