@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 24
+  spritePixelsToUnits: 40
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
@@ -1303,62 +1303,62 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      goblin_11: -1229139619
-      goblin_17: 1788677777
-      goblin_12: -2005756204
-      goblin_27: 1609472137
-      goblin_33: 1856606515
-      goblin_18: -1753448202
-      goblin_45: -372321626
-      goblin_53: -1396253421
-      goblin_16: -98078866
-      goblin_1: -1671722087
-      goblin_5: 1003400653
-      goblin_46: -1308516797
-      goblin_26: 1561204731
-      goblin_8: 1400221056
-      goblin_41: -1375801116
       goblin_0: 449580901
-      goblin_49: -717828545
-      goblin_15: -535581290
-      goblin_54: 1903203060
-      goblin_24: 1275613245
-      goblin_36: 741682563
-      goblin_4: -1766022038
-      goblin_48: -1920748725
-      goblin_38: 1773373189
-      goblin_52: 1342711322
-      goblin_43: -1954709026
-      goblin_42: 445151406
-      goblin_7: 2005177046
-      goblin_13: 590368218
+      goblin_1: -1671722087
       goblin_10: -366139381
-      goblin_22: 681082207
-      goblin_20: -1937596152
-      goblin_39: -519753818
-      goblin_29: -1223143429
-      goblin_21: -332460932
-      goblin_25: 1153739321
-      goblin_3: 1744730484
-      goblin_6: -832469436
-      goblin_9: -674688797
-      goblin_51: 640278962
-      goblin_31: 953182330
-      goblin_44: 1474516615
-      goblin_37: -1389634885
+      goblin_11: -1229139619
+      goblin_12: -2005756204
+      goblin_13: 590368218
       goblin_14: 93042371
+      goblin_15: -535581290
+      goblin_16: -98078866
+      goblin_17: 1788677777
+      goblin_18: -1753448202
       goblin_19: 1545090225
-      goblin_35: 905555504
-      goblin_55: 2081194901
-      goblin_32: -1683663579
-      goblin_47: 1492520719
-      goblin_50: -1508827634
       goblin_2: 1943444925
-      goblin_30: -754079801
+      goblin_20: -1937596152
+      goblin_21: -332460932
+      goblin_22: 681082207
       goblin_23: -774960205
-      goblin_40: -610326087
-      goblin_34: -1378650043
+      goblin_24: 1275613245
+      goblin_25: 1153739321
+      goblin_26: 1561204731
+      goblin_27: 1609472137
       goblin_28: -1609703985
+      goblin_29: -1223143429
+      goblin_3: 1744730484
+      goblin_30: -754079801
+      goblin_31: 953182330
+      goblin_32: -1683663579
+      goblin_33: 1856606515
+      goblin_34: -1378650043
+      goblin_35: 905555504
+      goblin_36: 741682563
+      goblin_37: -1389634885
+      goblin_38: 1773373189
+      goblin_39: -519753818
+      goblin_4: -1766022038
+      goblin_40: -610326087
+      goblin_41: -1375801116
+      goblin_42: 445151406
+      goblin_43: -1954709026
+      goblin_44: 1474516615
+      goblin_45: -372321626
+      goblin_46: -1308516797
+      goblin_47: 1492520719
+      goblin_48: -1920748725
+      goblin_49: -717828545
+      goblin_5: 1003400653
+      goblin_50: -1508827634
+      goblin_51: 640278962
+      goblin_52: 1342711322
+      goblin_53: -1396253421
+      goblin_54: 1903203060
+      goblin_55: 2081194901
+      goblin_6: -832469436
+      goblin_7: 2005177046
+      goblin_8: 1400221056
+      goblin_9: -674688797
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

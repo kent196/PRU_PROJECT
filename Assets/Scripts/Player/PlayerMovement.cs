@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float speed = 10f;
+    [SerializeField] private float speed = 1.5f;
 
     Rigidbody2D rb;
     Animator anim;
 
+    private float powerUpSpeed;
     private float moveX;
     private float moveY;
     private Vector2 direction;
     // Start is called before the first frame update
     void Start()
     {
+        powerUpSpeed = 0;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
     }
@@ -27,8 +29,12 @@ public class PlayerMovement : MonoBehaviour
     }
     private void LateUpdate()
     {
-        GetDirection();
-        Moving();
+        if (!anim.GetBool("Dead"))
+        {
+            GetDirection();
+            Moving();
+        }
+        
     }
 
     private void GetDirection()
@@ -45,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Moving()
     {
-        rb.velocity = direction * speed;
+        float finalSpeed = speed + powerUpSpeed;
+        rb.velocity = direction * finalSpeed;
     }
 }

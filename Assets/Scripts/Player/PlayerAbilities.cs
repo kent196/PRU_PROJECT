@@ -18,7 +18,7 @@ public class PlayerAbilities : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Damage = 5;
+        Damage = 50;
         rigidbody2D = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         attackCooldown = cooldownTime;
@@ -54,8 +54,7 @@ public class PlayerAbilities : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Vector3 offset = new Vector3(GetAttackDirection().x, GetAttackDirection().y, 0);
-            GameObject projectileShooting = Instantiate(projectilePrefab, transform.position + offset / 2, Quaternion.identity);
+            GameObject projectileShooting = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
             projectileShooting.GetComponent<Rigidbody2D>().velocity = GetAttackDirection() * projectileSpeed;
             projectileShooting.transform.Rotate(.0f, .0f, Mathf.Atan2(GetAttackDirection().y, GetAttackDirection().x) * Mathf.Rad2Deg);
             Destroy(projectileShooting, 3.0f);

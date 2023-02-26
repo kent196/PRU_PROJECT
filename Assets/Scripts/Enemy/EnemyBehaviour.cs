@@ -8,19 +8,21 @@ public class EnemyBehaviour : MonoBehaviour
     HealthStats healthStats;
     Animator anim;
     Rigidbody2D rb;
+    Collider2D col;
 
-    [SerializeField] private UnityEvent OnBegin,OnDone;
+    [SerializeField] private UnityEvent OnBegin, OnDone;
     int health, maxHealth;
     PlayerAbilities playerability;
 
     // Start is called before the first frame update
     void Start()
     {
-        EnemyType();
-        healthStats = new HealthStats(health,maxHealth);
+        EnemyHealth();
+        col = GetComponent<Collider2D>();
+        healthStats = new HealthStats(health, maxHealth);
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        playerability=FindObjectOfType<PlayerAbilities>();
+        playerability = FindObjectOfType<PlayerAbilities>();
     }
 
     // Update is called once per frame
@@ -55,6 +57,7 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (healthStats.Health <= 0)
         {
+            col.isTrigger = true;
             anim.SetBool("Dead", true);
         }
     }
@@ -64,27 +67,27 @@ public class EnemyBehaviour : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void EnemyType()
+    void EnemyHealth()
     {
         if (this.gameObject.CompareTag("Goblin"))
         {
-            health = 20;
-            maxHealth = 20;
+            health = 200;
+            maxHealth = 200;
         }
         else if (this.gameObject.CompareTag("Orc"))
         {
-            health = 100;
-            maxHealth = 100;
+            health = 400;
+            maxHealth = 400;
         }
         else if (this.gameObject.CompareTag("Mummy"))
         {
-            health = 20;
-            maxHealth = 20;
+            health = 300;
+            maxHealth = 300;
         }
         else if (this.gameObject.CompareTag("Skelly"))
         {
-            health = 10;
-            maxHealth = 10;
+            health = 100;
+            maxHealth = 100;
         }
     }
 }

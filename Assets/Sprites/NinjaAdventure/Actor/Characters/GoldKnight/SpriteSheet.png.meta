@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 48
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -715,34 +715,34 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      SpriteSheet_13: 443536918
-      SpriteSheet_19: -1305711617
-      SpriteSheet_26: 1666809508
-      SpriteSheet_5: -1807438764
-      SpriteSheet_23: 1937522800
-      SpriteSheet_4: 951060978
-      SpriteSheet_7: 1587612440
-      SpriteSheet_8: 2055598666
-      SpriteSheet_24: 1396029717
-      SpriteSheet_27: 1180211990
-      SpriteSheet_16: 1649730322
-      SpriteSheet_2: -1127483603
-      SpriteSheet_6: 1814564815
-      SpriteSheet_14: -1971656243
       SpriteSheet_0: -1784681801
-      SpriteSheet_25: -2142064378
       SpriteSheet_1: 261084239
       SpriteSheet_10: 2106330367
-      SpriteSheet_22: -1541478605
-      SpriteSheet_15: 1195617400
-      SpriteSheet_3: 1729501643
-      SpriteSheet_21: -160277261
+      SpriteSheet_11: 2062411134
       SpriteSheet_12: -1027010694
-      SpriteSheet_20: 851713108
+      SpriteSheet_13: 443536918
+      SpriteSheet_14: -1971656243
+      SpriteSheet_15: 1195617400
+      SpriteSheet_16: 1649730322
       SpriteSheet_17: -1210516068
       SpriteSheet_18: -526609017
+      SpriteSheet_19: -1305711617
+      SpriteSheet_2: -1127483603
+      SpriteSheet_20: 851713108
+      SpriteSheet_21: -160277261
+      SpriteSheet_22: -1541478605
+      SpriteSheet_23: 1937522800
+      SpriteSheet_24: 1396029717
+      SpriteSheet_25: -2142064378
+      SpriteSheet_26: 1666809508
+      SpriteSheet_27: 1180211990
+      SpriteSheet_3: 1729501643
+      SpriteSheet_4: 951060978
+      SpriteSheet_5: -1807438764
+      SpriteSheet_6: 1814564815
+      SpriteSheet_7: 1587612440
+      SpriteSheet_8: 2055598666
       SpriteSheet_9: -196495657
-      SpriteSheet_11: 2062411134
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -9,6 +9,9 @@ TagManager:
   - Orc
   - Mummy
   - Skelly
+  - EnemyAttackZone
+  - Boss
+  - Lightning
   layers:
   - Default
   - TransparentFX
@@ -18,8 +21,8 @@ TagManager:
   - UI
   - Player
   - Enemy
-  - CameraBoundary
-  - 
+  - Arrow
+  - Boss
   - 
   - 
   - 
@@ -43,6 +46,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Ground
+    uniqueID: 302111991
+    locked: 0
+  - name: Above
+    uniqueID: 1777282485
+    locked: 0
+  - name: Wall
+    uniqueID: 1242257159
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

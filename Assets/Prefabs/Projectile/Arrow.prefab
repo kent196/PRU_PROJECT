@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5023121756428833852}
   - component: {fileID: 226749325123983592}
   - component: {fileID: -1758305046855110728}
-  m_Layer: 22
+  m_Layer: 8
   m_Name: Arrow
   m_TagString: Arrow
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 884e2058ad680e84a8532604da138d90, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -165,7 +165,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2206cdfc82502c04f91e1d4b04d97fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  strength: 1000
   knockBackLayer:
     serializedVersion: 2
     m_Bits: 128
