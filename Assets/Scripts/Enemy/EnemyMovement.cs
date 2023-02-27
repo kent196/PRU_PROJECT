@@ -70,7 +70,7 @@ public class EnemyMovement : MonoBehaviour
         }
         else if (this.gameObject.CompareTag("Orc"))
         {
-            return 1f;
+            return 0.8f;
         }
         else if (this.gameObject.CompareTag("Mummy"))
         {
