@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 24
+  spritePixelsToUnits: 40
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
@@ -1303,62 +1303,62 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      skelly_14: -2000643895
-      skelly_53: -1390329228
-      skelly_45: -1464281325
-      skelly_40: -123979118
-      skelly_28: -2130253459
-      skelly_50: 26433484
-      skelly_20: -398972257
-      skelly_55: -1645537403
-      skelly_22: 1545136920
-      skelly_49: -578905801
-      skelly_25: 537081536
-      skelly_26: 222339275
-      skelly_52: -975076179
-      skelly_32: 1198359836
-      skelly_16: 1706212944
-      skelly_2: -560486819
-      skelly_12: -1716981362
-      skelly_27: 1949973698
-      skelly_6: 1341370856
-      skelly_19: 149365763
       skelly_0: -137619507
-      skelly_3: 1675772103
-      skelly_29: -1407089440
-      skelly_10: 1426023185
-      skelly_44: 388239684
-      skelly_5: 1980184930
-      skelly_24: 553872070
-      skelly_54: 634432621
-      skelly_9: 1168322534
-      skelly_31: 1842085760
-      skelly_7: 2055162067
-      skelly_34: -1512453519
-      skelly_11: 1829299439
-      skelly_43: 1409681647
-      skelly_13: 505039827
-      skelly_48: -1363686179
-      skelly_51: -1735542675
-      skelly_46: 218617841
-      skelly_35: 1089763529
       skelly_1: 101277408
-      skelly_4: 713916721
-      skelly_38: 1600346986
-      skelly_30: -1934204844
-      skelly_21: 2077215060
-      skelly_33: -905174688
-      skelly_39: 942461740
+      skelly_10: 1426023185
+      skelly_11: 1829299439
+      skelly_12: -1716981362
+      skelly_13: 505039827
+      skelly_14: -2000643895
       skelly_15: 804455601
-      skelly_23: -1631405561
+      skelly_16: 1706212944
       skelly_17: -399831162
       skelly_18: -1538263224
+      skelly_19: 149365763
+      skelly_2: -560486819
+      skelly_20: -398972257
+      skelly_21: 2077215060
+      skelly_22: 1545136920
+      skelly_23: -1631405561
+      skelly_24: 553872070
+      skelly_25: 537081536
+      skelly_26: 222339275
+      skelly_27: 1949973698
+      skelly_28: -2130253459
+      skelly_29: -1407089440
+      skelly_3: 1675772103
+      skelly_30: -1934204844
+      skelly_31: 1842085760
+      skelly_32: 1198359836
+      skelly_33: -905174688
+      skelly_34: -1512453519
+      skelly_35: 1089763529
       skelly_36: 1467240709
-      skelly_41: -272541296
-      skelly_47: 872372184
-      skelly_42: -979013670
       skelly_37: -1538162584
+      skelly_38: 1600346986
+      skelly_39: 942461740
+      skelly_4: 713916721
+      skelly_40: -123979118
+      skelly_41: -272541296
+      skelly_42: -979013670
+      skelly_43: 1409681647
+      skelly_44: 388239684
+      skelly_45: -1464281325
+      skelly_46: 218617841
+      skelly_47: 872372184
+      skelly_48: -1363686179
+      skelly_49: -578905801
+      skelly_5: 1980184930
+      skelly_50: 26433484
+      skelly_51: -1735542675
+      skelly_52: -975076179
+      skelly_53: -1390329228
+      skelly_54: 634432621
+      skelly_55: -1645537403
+      skelly_6: 1341370856
+      skelly_7: 2055162067
       skelly_8: -520926993
+      skelly_9: 1168322534
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

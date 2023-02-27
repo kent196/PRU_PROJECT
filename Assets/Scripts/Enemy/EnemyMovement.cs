@@ -10,12 +10,13 @@ public class EnemyMovement : MonoBehaviour
     Animator anim;
     Rigidbody2D rb;
 
-    float radius = 0.5f;
-    float speed = 1f;
+    float radius = 0.3f;
+    float speed;
     Vector2 direction;
     // Start is called before the first frame update
     void Start()
     {
+        speed = EnemySpeed();
         player = GameObject.FindWithTag("Player").transform;
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
@@ -39,10 +40,12 @@ public class EnemyMovement : MonoBehaviour
 
     void Moving()
     {
-        direction = player.position - transform.position;
-        direction.Normalize();
-        rb.velocity = direction * speed;
-
+        if (player != null)
+        {
+            direction = player.position - transform.position;
+            direction.Normalize();
+            rb.velocity = direction * speed;
+        }
     }
     void GetAnimation()
     {
@@ -57,5 +60,29 @@ public class EnemyMovement : MonoBehaviour
     bool PlayerInRange()
     {
         return Physics2D.OverlapCircle(transform.position, radius, playerLayer);
+    }
+
+    private float EnemySpeed()
+    {
+        if (this.gameObject.CompareTag("Goblin"))
+        {
+            return 1f;
+        }
+        else if (this.gameObject.CompareTag("Orc"))
+        {
+            return 1f;
+        }
+        else if (this.gameObject.CompareTag("Mummy"))
+        {
+            return .9f;
+        }
+        else if (this.gameObject.CompareTag("Skelly"))
+        {
+            return 1.1f;
+        }
+        else
+        {
+            return 0;
+        }
     }
 }

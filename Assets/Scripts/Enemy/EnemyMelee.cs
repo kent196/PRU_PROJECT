@@ -6,14 +6,15 @@ public class EnemyMelee : MonoBehaviour
 {
     [SerializeField] private LayerMask playerLayer;
 
-    private float radius = 0.5f;
+    private float radius = 0.3f;
 
-    Rigidbody2D rb;
     Animator anim;
+
+    public int Damage { get; private set; }
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        Damage = EnemyDamage();
         anim = GetComponent<Animator>();
     }
 
@@ -43,5 +44,28 @@ public class EnemyMelee : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(transform.position, radius);
+    }
+    private int EnemyDamage()
+    {
+        if (this.gameObject.CompareTag("Goblin"))
+        {
+            return 30;
+        }
+        else if (this.gameObject.CompareTag("Orc"))
+        {
+            return 50;
+        }
+        else if (this.gameObject.CompareTag("Mummy"))
+        {
+            return 20;
+        }
+        else if (this.gameObject.CompareTag("Skelly"))
+        {
+            return 10;
+        }
+        else
+        {
+            return 0;
+        }
     }
 }

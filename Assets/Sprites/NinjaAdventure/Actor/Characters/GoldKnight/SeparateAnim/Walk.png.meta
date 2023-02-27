@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
@@ -463,22 +463,22 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Walk_5: 1449484114
-      Walk_12: 1306377096
-      Walk_10: 297770983
       Walk_0: 1874127299
-      Walk_9: 1416441406
-      Walk_4: 776018317
-      Walk_11: -1684567155
-      Walk_8: 1129995182
-      Walk_6: 1458682301
-      Walk_2: -22070143
-      Walk_15: 1540024251
-      Walk_7: 1372804174
-      Walk_3: 1577272717
-      Walk_13: 386509793
       Walk_1: 1597155233
+      Walk_10: 297770983
+      Walk_11: -1684567155
+      Walk_12: 1306377096
+      Walk_13: 386509793
       Walk_14: -1766922766
+      Walk_15: 1540024251
+      Walk_2: -22070143
+      Walk_3: 1577272717
+      Walk_4: 776018317
+      Walk_5: 1449484114
+      Walk_6: 1458682301
+      Walk_7: 1372804174
+      Walk_8: 1129995182
+      Walk_9: 1416441406
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
