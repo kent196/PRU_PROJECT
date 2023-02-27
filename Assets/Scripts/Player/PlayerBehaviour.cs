@@ -23,7 +23,7 @@ public class PlayerBehaviour : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        healthBar = FindObjectOfType<HealthBar>();
+        healthBar = GameObject.FindGameObjectWithTag("PlayerHealthBar").GetComponent<HealthBar>();
         col = GetComponent<Collider2D>();
         healthStats = new HealthStats(1000, 1000);
         health = healthStats.Health;

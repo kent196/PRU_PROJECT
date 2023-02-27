@@ -12,6 +12,8 @@ TagManager:
   - EnemyAttackZone
   - Boss
   - Lightning
+  - PlayerHealthBar
+  - BossHealthBar
   layers:
   - Default
   - TransparentFX
