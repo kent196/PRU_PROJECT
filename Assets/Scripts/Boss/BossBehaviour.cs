@@ -8,6 +8,8 @@ public class BossBehaviour : MonoBehaviour
     HealthStats healthStats;
     Animator anim;
     Collider2D col;
+    [SerializeField] private HealthBar healthBar;
+
 
     int health, maxHealth;
     bool isVulnerable = false, isStaggering = false;
@@ -21,9 +23,13 @@ public class BossBehaviour : MonoBehaviour
         BossHealth();
         col = GetComponent<Collider2D>();
         healthStats = new HealthStats(health, maxHealth);
+        healthBar = GameObject.FindGameObjectWithTag("BossHealthBar").GetComponent<HealthBar>();
         anim = GetComponent<Animator>();
         playerability = FindObjectOfType<PlayerAbilities>();
     }
+
+
+
 
     private void BossHealth()
     {
@@ -41,9 +47,12 @@ public class BossBehaviour : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Arrow"))
         {
+
             anim.SetTrigger("Hit");
             healthStats.DamageUnit(playerability.Damage);
+            healthBar.SetHealth(healthStats.Health);
             Debug.Log(playerability.Damage);
+            Debug.Log(healthStats.Health);
         }
     }
 
