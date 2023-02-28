@@ -15,6 +15,7 @@ public class Wave
 public class SpawnManager : MonoBehaviour
 
 {
+    private GameManager gm;
     [SerializeField] private Wave[] waves;
     [SerializeField] private Transform[] spawnPoints;
     [SerializeField] private Animator animator;
@@ -45,6 +46,8 @@ public class SpawnManager : MonoBehaviour
                 {
                     waveName.text = waves[currentWaveNumber + 1].waveName;
                     animator.SetTrigger("WaveComplete");
+                    Invoke("ChoosePowerUp", 1f);
+
                     canAnimate = false;
                 }
             }
@@ -81,6 +84,17 @@ public class SpawnManager : MonoBehaviour
         canSpawn = true;
     }
 
+    void ChoosePowerUp()
+    {
+        GameManager.Instance.PowerUpSelect();
+    }
+
+    public void PowerUpSelected()
+    {
+        animator.SetBool("isPowerUpPicked", true);
+        GameManager.Instance.PowerUpSelected();
+
+    }
     void SpawnWave()
 
     {
