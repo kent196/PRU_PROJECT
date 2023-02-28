@@ -14,6 +14,8 @@ TagManager:
   - Lightning
   - PlayerHealthBar
   - BossHealthBar
+  - PowerUpSelect
+  - SpawnManager
   layers:
   - Default
   - TransparentFX
