@@ -9,14 +9,17 @@ public class EnemyBehaviour : MonoBehaviour
     Animator anim;
     Rigidbody2D rb;
     Collider2D col;
+    GameObject ui;
 
     [SerializeField] private UnityEvent OnBegin, OnDone;
     int health, maxHealth;
     PlayerAbilities playerability;
 
+
     // Start is called before the first frame update
     void Start()
     {
+        ui = GameObject.FindWithTag("UI");
         EnemyHealth();
         col = GetComponent<Collider2D>();
         healthStats = new HealthStats(health, maxHealth);
@@ -59,11 +62,35 @@ public class EnemyBehaviour : MonoBehaviour
         {
             col.isTrigger = true;
             anim.SetBool("Dead", true);
+
         }
     }
 
+
+
     void DestroyEnemy()
     {
+        var UI = ui.GetComponent<UIBehavior>();
+        if (this.gameObject.CompareTag("Skelly"))
+        {
+
+            UI.AddPoints(100);
+        }
+        if (this.gameObject.CompareTag("Goblin"))
+        {
+
+            UI.AddPoints(200);
+        }
+        if (this.gameObject.CompareTag("Mummy"))
+        {
+
+            UI.AddPoints(300);
+        }
+        if (this.gameObject.CompareTag("Orc"))
+        {
+
+            UI.AddPoints(400);
+        }
         Destroy(gameObject);
     }
 
