@@ -16,6 +16,7 @@ TagManager:
   - BossHealthBar
   - PowerUpSelect
   - SpawnManager
+  - UI
   layers:
   - Default
   - TransparentFX
