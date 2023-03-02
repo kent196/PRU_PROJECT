@@ -124,6 +124,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1.5
+  tr: {fileID: 0}
+  dashOn:
+    m_PersistentCalls:
+      m_Calls: []
+  dashOff:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!61 &7622722145871961506
 BoxCollider2D:
   m_ObjectHideFlags: 0

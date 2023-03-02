@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 1.5f;
+    [SerializeField] private TrailRenderer tr;
+    [SerializeField] private UnityEvent dashOn, dashOff;
 
     Rigidbody2D rb;
     Animator anim;
@@ -15,14 +18,15 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 lastDirection;
 
     private float activeMoveSpeed;
-    private float dashSpeed = 2f;
-    private float dashLength = .5f, dashCooldown = 1f;
+    private float dashSpeed = 5f;
+    private float dashLength = .2f, dashCooldown = 1f;
     private float dashCounter;
     private float dashCoolCounter;
     private bool dashing = false;
     // Start is called before the first frame update
     void Start()
     {
+        tr = GetComponent<TrailRenderer>();
         activeMoveSpeed = moveSpeed;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
@@ -57,6 +61,9 @@ public class PlayerMovement : MonoBehaviour
                 activeMoveSpeed = dashSpeed;
                 dashCounter = dashLength;
                 dashing = true;
+                tr.emitting = true;
+                Physics2D.IgnoreLayerCollision(6, 7, true);
+                dashOn?.Invoke();
                 StartCoroutine(DashCooldown());
             }
         }
@@ -78,7 +85,10 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator DashCooldown()
     {
         yield return new WaitForSeconds(dashLength);
+        tr.emitting = false;
         dashing = false;
+        dashOff?.Invoke();
+        Physics2D.IgnoreLayerCollision(6, 7, false);
     }
 
     private void GetDirection()

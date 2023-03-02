@@ -5,20 +5,26 @@ using UnityEngine;
 
 public class BossBehaviour : MonoBehaviour
 {
+    [SerializeField] private GameObject barrier;
+
     HealthStats healthStats;
     Animator anim;
     Collider2D col;
 
     int health, maxHealth;
-    bool isVulnerable = false, isStaggering = false;
-    float vulnerableCooldown, staggeringCooldown;
-    int shieldHitCount = 10;
+    float vulnerableTime;
+    float timer = 2f;
+    int shieldHitCount;
+    int shieldLife = 10;
+    bool isVulnerable = false;
     PlayerAbilities playerability;
 
     // Start is called before the first frame update
     void Start()
     {
         BossHealth();
+        vulnerableTime = timer;
+        shieldHitCount = shieldLife;
         col = GetComponent<Collider2D>();
         healthStats = new HealthStats(health, maxHealth);
         anim = GetComponent<Animator>();
@@ -34,6 +40,7 @@ public class BossBehaviour : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        VulnerableTimer();
         Dead();
     }
 
@@ -41,9 +48,49 @@ public class BossBehaviour : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Arrow"))
         {
-            anim.SetTrigger("Hit");
-            healthStats.DamageUnit(playerability.Damage);
-            Debug.Log(playerability.Damage);
+            if (Vulnerable())
+            {
+                if (shieldHitCount == 0)
+                {
+                    anim.SetTrigger("BarrierBreak");
+                }
+                anim.SetTrigger("Hit");
+                healthStats.DamageUnit(playerability.Damage);
+                Debug.Log(healthStats.Health);
+            }
+            else
+            {
+                Instantiate(barrier, transform.position, Quaternion.identity);
+                shieldHitCount--;
+                Debug.Log(shieldHitCount);
+            }
+        }
+    }
+
+    bool Vulnerable()
+    {
+        if (shieldHitCount <= 0)
+        {
+            anim.SetBool("Vulnerable", isVulnerable);
+            return true;
+        }
+        else
+        {
+            isVulnerable = false;
+            return false;
+        }
+    }
+
+    void VulnerableTimer()
+    {
+        if (Vulnerable())
+        {
+            vulnerableTime -= Time.deltaTime;
+            if (vulnerableTime <= 0)
+            {
+                shieldHitCount = shieldLife;
+                vulnerableTime = timer;
+            }
         }
     }
 
@@ -56,8 +103,13 @@ public class BossBehaviour : MonoBehaviour
         }
     }
 
-    void DestroyBoss()
+    void BossDestroy()
     {
         Destroy(gameObject);
+    }
+
+    void BossVulnerable()
+    {
+        isVulnerable = true;
     }
 }

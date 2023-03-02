@@ -15,6 +15,7 @@ public class PlayerBehaviour : MonoBehaviour
     private int health, maxHealth;
     private HealthStats healthStats;
     private EnemyMelee enemy;
+    private BossAbility boss;
 
 
     // Start is called before the first frame update
@@ -47,6 +48,17 @@ public class PlayerBehaviour : MonoBehaviour
             Vector2 direction = (transform.position - collision.gameObject.transform.position).normalized;
             rb.AddForce(direction * 2, ForceMode2D.Impulse);
             IsDamaged(enemy.Damage);
+            Debug.Log("Health = " + health + "Max health = " + maxHealth);
+            StartCoroutine(Reset());
+        }else if (collision.gameObject.CompareTag("Lightning"))
+        {
+            boss=FindObjectOfType<BossAbility>();
+            StopAllCoroutines();
+            OnBegin?.Invoke();
+            anim.SetTrigger("Hit");
+            /*Vector2 direction = (transform.position - collision.gameObject.transform.position).normalized;
+            rb.AddForce(direction * 2, ForceMode2D.Impulse);*/
+            IsDamaged(boss.Damage);
             Debug.Log("Health = " + health + "Max health = " + maxHealth);
             StartCoroutine(Reset());
         }
