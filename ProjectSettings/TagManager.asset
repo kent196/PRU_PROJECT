@@ -17,6 +17,10 @@ TagManager:
   - PowerUpSelect
   - SpawnManager
   - UI
+  - End UI
+  - GUI
+  - Pause Menu
+  - Confirm Box
   layers:
   - Default
   - TransparentFX
