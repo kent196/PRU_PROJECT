@@ -71,6 +71,7 @@ public class PlayerBehaviour : MonoBehaviour
         {
             OnDead?.Invoke();
             anim.SetBool("Dead", true);
+            GameManager.Instance.EndGame();
         }
     }
 }
