@@ -24,10 +24,7 @@ public class UIBehavior : MonoBehaviour
         txtSpd.text = "Speed: " + spd.ToString();
         txtPoints.text = "Points: " + currentPoints.ToString();
     }
-    private void Update()
-    {
 
-    }
 
     public void PowerUpSelected()
     {
@@ -40,5 +37,30 @@ public class UIBehavior : MonoBehaviour
         Debug.Log(currentPoints);
         txtPoints.text = "Points: " + currentPoints.ToString();
         return currentPoints;
+    }
+
+    public void Resume()
+    {
+        GameManager.Instance.ResumeGame();
+    }
+
+    public void Restart()
+    {
+        GameManager.Instance.RestartGame();
+    }
+
+    public void ConfirmBox()
+    {
+        GameManager.Instance.ConfirmBox();
+    }
+
+    public void ConfirmYes()
+    {
+        GameManager.Instance.ConfirmYes();
+    }
+
+    public void ConfirmNo()
+    {
+        GameManager.Instance.ConfirmNo();
     }
 }
