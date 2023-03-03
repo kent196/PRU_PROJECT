@@ -7,7 +7,6 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 1.5f;
     [SerializeField] private TrailRenderer tr;
-    [SerializeField] private UnityEvent dashOn, dashOff;
 
     Rigidbody2D rb;
     Animator anim;
@@ -23,6 +22,8 @@ public class PlayerMovement : MonoBehaviour
     private float dashCounter;
     private float dashCoolCounter;
     private bool dashing = false;
+
+    public float Speed { get { return moveSpeed; } private set { moveSpeed = value; } }
     // Start is called before the first frame update
     void Start()
     {
@@ -63,7 +64,6 @@ public class PlayerMovement : MonoBehaviour
                 dashing = true;
                 tr.emitting = true;
                 Physics2D.IgnoreLayerCollision(6, 7, true);
-                dashOn?.Invoke();
                 StartCoroutine(DashCooldown());
             }
         }
@@ -87,7 +87,6 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(dashLength);
         tr.emitting = false;
         dashing = false;
-        dashOff?.Invoke();
         Physics2D.IgnoreLayerCollision(6, 7, false);
     }
 

@@ -17,6 +17,7 @@ TagManager:
   - PowerUpSelect
   - SpawnManager
   - UI
+  - BossAttackZone
   - End UI
   - GUI
   - Pause Menu

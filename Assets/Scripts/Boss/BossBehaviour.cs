@@ -6,19 +6,24 @@ using UnityEngine;
 public class BossBehaviour : MonoBehaviour
 {
     [SerializeField] private GameObject barrier;
+    [SerializeField] private GameObject explosion;
 
     HealthStats healthStats;
     Animator anim;
     Collider2D col;
 
     int health, maxHealth;
+
     float vulnerableTime;
     float timer = 2f;
+    bool isVulnerable = false;
     int shieldHitCount;
     int shieldLife = 10;
-    bool isVulnerable = false;
-    PlayerAbilities playerability;
 
+    int explosionCount = 5;
+    float explosionRadius = .5f;
+
+    PlayerAbilities playerability;
     // Start is called before the first frame update
     void Start()
     {
@@ -100,6 +105,22 @@ public class BossBehaviour : MonoBehaviour
         {
             col.isTrigger = true;
             anim.SetBool("Dead", true);
+            Invoke("BossDestroy", 5f);
+        }
+    }
+
+    void BossExplosion()
+    {
+        StartCoroutine(Explosion());
+    }
+
+    IEnumerator Explosion()
+    {
+        for (int i = 0; i < explosionCount; i++)
+        {
+            yield return new WaitForSeconds(.2f);
+            Vector2 pos = UnityEngine.Random.insideUnitCircle * explosionRadius;
+            Instantiate(explosion, transform.position + new Vector3(pos.x, pos.y, 0), Quaternion.identity);
         }
     }
 

@@ -21,14 +21,15 @@ public class BossAbility : MonoBehaviour
     {
         castCooldown = duration;
         attackCooldown = duration;
-        Damage = BossDamage();
+        
         anim = GetComponent<Animator>();
         player = GameObject.FindWithTag("Player").transform;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+        Damage = BossDamage();
         Attack();
     }
 
@@ -125,7 +126,7 @@ public class BossAbility : MonoBehaviour
     {
         if (PlayerNear())
         {
-            return 200;
+            return 100;
         }
         else
         {
