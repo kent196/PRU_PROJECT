@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 1.5f;
     [SerializeField] private TrailRenderer tr;
+    public float Speed { get { return moveSpeed; } private set { moveSpeed = value; } }
+
 
     Rigidbody2D rb;
     Animator anim;

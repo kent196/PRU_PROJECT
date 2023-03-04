@@ -12,6 +12,9 @@ public class BossBehaviour : MonoBehaviour
     HealthStats healthStats;
     Animator anim;
     Collider2D col;
+    [SerializeField] private HealthBar healthBar;
+    private GameObject bossHB;
+
 
     int health, maxHealth;
 
@@ -28,15 +31,20 @@ public class BossBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        bossHB = GameObject.FindWithTag("Footer");
         BossHealth();
         healthBar = GameObject.FindGameObjectWithTag("BossHealthBar").GetComponent<HealthBar>();
         vulnerableTime = timer;
         shieldHitCount = shieldLife;
         col = GetComponent<Collider2D>();
         healthStats = new HealthStats(health, maxHealth);
+        healthBar = GameObject.FindGameObjectWithTag("BossHealthBar").GetComponent<HealthBar>();
         anim = GetComponent<Animator>();
         playerability = FindObjectOfType<PlayerAbilities>();
     }
+
+
+
 
     private void BossHealth()
     {
@@ -100,6 +108,12 @@ public class BossBehaviour : MonoBehaviour
                 shieldHitCount = shieldLife;
                 vulnerableTime = timer;
             }
+
+            anim.SetTrigger("Hit");
+            healthStats.DamageUnit(playerability.Damage);
+            healthBar.SetHealth(healthStats.Health);
+            Debug.Log(playerability.Damage);
+            Debug.Log(healthStats.Health);
         }
     }
 
@@ -130,6 +144,7 @@ public class BossBehaviour : MonoBehaviour
 
     void BossDestroy()
     {
+        bossHB.SetActive(false);
         Destroy(gameObject);
     }
 
