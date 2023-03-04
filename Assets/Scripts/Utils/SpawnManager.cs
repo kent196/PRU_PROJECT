@@ -15,9 +15,11 @@ public class Wave
 public class SpawnManager : MonoBehaviour
 
 {
+    private GameObject enemyHB;
     private GameManager gm;
     [SerializeField] private Wave[] waves;
     [SerializeField] private Transform[] spawnPoints;
+    [SerializeField] private Transform spawnPointFinalWave;
     [SerializeField] private Animator animator;
     [SerializeField] private Text waveName;
 
@@ -30,6 +32,8 @@ public class SpawnManager : MonoBehaviour
 
     private void Start()
     {
+        enemyHB = GameObject.FindWithTag("Footer");
+        enemyHB.SetActive(false);
         waveName.text = waves[currentWaveNumber].waveName;
         animator.SetTrigger("WaveStart");
     }
@@ -47,7 +51,6 @@ public class SpawnManager : MonoBehaviour
                     waveName.text = waves[currentWaveNumber + 1].waveName;
                     animator.SetTrigger("WaveComplete");
                     Invoke("ChoosePowerUp", 1f);
-
                     canAnimate = false;
                 }
             }
@@ -101,14 +104,29 @@ public class SpawnManager : MonoBehaviour
         if (canStart && canSpawn && nextSpawnTime < Time.time)
         {
             GameObject randomEnemy = currentWave.typeOfEnemies[Random.Range(0, currentWave.typeOfEnemies.Length)];
-            Transform randomPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
-            Instantiate(randomEnemy, randomPoint.position, Quaternion.identity);
-            currentWave.noOfEnemies--;
-            nextSpawnTime = Time.time + currentWave.spawnInterval;
-            if (currentWave.noOfEnemies == 0)
+            if (currentWaveNumber + 1 != waves.Length)
             {
-                canSpawn = false;
-                canAnimate = true;
+                Transform randomPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
+                Instantiate(randomEnemy, randomPoint.position, Quaternion.identity);
+                currentWave.noOfEnemies--;
+                nextSpawnTime = Time.time + currentWave.spawnInterval;
+                if (currentWave.noOfEnemies == 0)
+                {
+                    canSpawn = false;
+                    canAnimate = true;
+                }
+            }
+            else
+            {
+                enemyHB.SetActive(true);
+                Instantiate(randomEnemy, spawnPointFinalWave.position, Quaternion.identity);
+                currentWave.noOfEnemies--;
+                nextSpawnTime = Time.time + currentWave.spawnInterval;
+                if (currentWave.noOfEnemies == 0)
+                {
+                    canSpawn = false;
+                    canAnimate = true;
+                }
             }
         }
     }
