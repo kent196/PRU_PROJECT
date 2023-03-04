@@ -9,6 +9,7 @@ public class BossBehaviour : MonoBehaviour
     Animator anim;
     Collider2D col;
     [SerializeField] private HealthBar healthBar;
+    private GameObject bossHB;
 
 
     int health, maxHealth;
@@ -20,6 +21,7 @@ public class BossBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        bossHB = GameObject.FindWithTag("Footer");
         BossHealth();
         col = GetComponent<Collider2D>();
         healthStats = new HealthStats(health, maxHealth);
@@ -65,8 +67,9 @@ public class BossBehaviour : MonoBehaviour
         }
     }
 
-    void DestroyBoss()
+    void BossDestroy()
     {
+        bossHB.SetActive(false);
         Destroy(gameObject);
     }
 }
