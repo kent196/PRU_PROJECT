@@ -21,6 +21,7 @@ TagManager:
   - GUI
   - Pause Menu
   - Confirm Box
+  - Footer
   layers:
   - Default
   - TransparentFX
