@@ -8,6 +8,7 @@ public class BossBehaviour : MonoBehaviour
     [SerializeField] private GameObject barrier;
     [SerializeField] private GameObject explosion;
 
+    [SerializeField] private HealthBar healthBar;
     HealthStats healthStats;
     Animator anim;
     Collider2D col;
@@ -28,6 +29,7 @@ public class BossBehaviour : MonoBehaviour
     void Start()
     {
         BossHealth();
+        healthBar = GameObject.FindGameObjectWithTag("BossHealthBar").GetComponent<HealthBar>();
         vulnerableTime = timer;
         shieldHitCount = shieldLife;
         col = GetComponent<Collider2D>();
@@ -61,6 +63,8 @@ public class BossBehaviour : MonoBehaviour
                 }
                 anim.SetTrigger("Hit");
                 healthStats.DamageUnit(playerability.Damage);
+                healthBar.SetHealth(healthStats.Health);
+                Debug.Log(playerability.Damage);
                 Debug.Log(healthStats.Health);
             }
             else
