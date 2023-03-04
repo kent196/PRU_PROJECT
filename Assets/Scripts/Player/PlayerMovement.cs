@@ -25,7 +25,6 @@ public class PlayerMovement : MonoBehaviour
     private float dashCoolCounter;
     private bool dashing = false;
 
-    public float Speed { get { return moveSpeed; } private set { moveSpeed = value; } }
     // Start is called before the first frame update
     void Start()
     {

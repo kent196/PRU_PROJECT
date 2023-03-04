@@ -12,7 +12,6 @@ public class BossBehaviour : MonoBehaviour
     HealthStats healthStats;
     Animator anim;
     Collider2D col;
-    [SerializeField] private HealthBar healthBar;
     private GameObject bossHB;
 
 

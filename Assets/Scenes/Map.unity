@@ -656,12 +656,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 1241775289}
   boss: {fileID: 4496609910997260578, guid: e8a76872128023944b9f8c2036e66f69, type: 3}
---- !u!4 &887617689 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1495923710, guid: 48ddb87da30f0df41a14117b962a6345,
-    type: 3}
-  m_PrefabInstance: {fileID: 1904888207}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1073258159
 GameObject:
   m_ObjectHideFlags: 0
@@ -864,10 +858,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 1508483090, guid: 48ddb87da30f0df41a14117b962a6345, type: 3}
-      propertyPath: m_Layer
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 1966644866, guid: 48ddb87da30f0df41a14117b962a6345, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.974
@@ -889,7 +879,7 @@ PrefabInstance:
         type: 3}
       propertyPath: spawnPointFinalWave
       value: 
-      objectReference: {fileID: 887617689}
+      objectReference: {fileID: 798338}
     - target: {fileID: 5979085816994106784, guid: 48ddb87da30f0df41a14117b962a6345,
         type: 3}
       propertyPath: spawnPoints.Array.size
@@ -899,7 +889,7 @@ PrefabInstance:
         type: 3}
       propertyPath: spawnPoints.Array.data[2]
       value: 
-      objectReference: {fileID: 887617689}
+      objectReference: {fileID: 0}
     - target: {fileID: 5979085816994106784, guid: 48ddb87da30f0df41a14117b962a6345,
         type: 3}
       propertyPath: waves.Array.data[1].waveName
@@ -919,11 +909,6 @@ PrefabInstance:
         type: 3}
       propertyPath: waves.Array.data[4].waveName
       value: Final Wave
-      objectReference: {fileID: 0}
-    - target: {fileID: 5979085816994106784, guid: 48ddb87da30f0df41a14117b962a6345,
-        type: 3}
-      propertyPath: waves.Array.data[2].noOfEnemies
-      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5979085816994106784, guid: 48ddb87da30f0df41a14117b962a6345,
         type: 3}
