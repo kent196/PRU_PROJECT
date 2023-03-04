@@ -20,9 +20,13 @@ public class CameraControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (anim.GetBool("Dead"))
+        if(boss != null)
         {
-            camera.Priority = 0;
+            if (anim.GetBool("Dead"))
+            {
+                camera.Priority = 0;
+            }
         }
+        
     }
 }
