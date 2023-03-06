@@ -6,12 +6,13 @@ using UnityEngine.UI;
 public class UIBehavior : MonoBehaviour
 {
     public GameObject sm;
-    public Text txtAtk, txtSpd, txtPoints;
+    public Text txtAtk, txtSpd, txtPoints, txtFinalPoints;
     private int atk;
     private int currentPoints = 0;
     private float spd;
     private GameObject playerAbilities;
     private GameObject playerMovement;
+
 
     private void Start()
     {
@@ -24,11 +25,22 @@ public class UIBehavior : MonoBehaviour
         txtSpd.text = "Speed: " + spd.ToString();
         txtPoints.text = "Points: " + currentPoints.ToString();
     }
+    private void Update()
+    {
+        atk = playerAbilities.GetComponent<PlayerAbilities>().Damage;
+        spd = playerMovement.GetComponent<PlayerMovement>().Speed;
+        txtAtk.text = "Damage: " + atk.ToString();
+        txtSpd.text = "Speed: " + spd.ToString();
+        txtFinalPoints.text = "Total Points: " + currentPoints.ToString();
+
+    }
 
 
     public void PowerUpSelected()
     {
-        sm.GetComponent<SpawnManager>().PowerUpSelected();
+        sm.GetComponent<SpawnManager>().PowerUpDmgSelected();
+        sm.GetComponent<SpawnManager>().PowerUpSpdSelected();
+        sm.GetComponent<SpawnManager>().PowerUpHPSelected();
     }
 
     public int AddPoints(int points)
@@ -63,4 +75,5 @@ public class UIBehavior : MonoBehaviour
     {
         GameManager.Instance.ConfirmNo();
     }
+
 }

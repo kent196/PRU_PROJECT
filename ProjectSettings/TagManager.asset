@@ -23,6 +23,8 @@ TagManager:
   - Pause Menu
   - Confirm Box
   - Footer
+  - WinUI
+  - Win
   layers:
   - Default
   - TransparentFX

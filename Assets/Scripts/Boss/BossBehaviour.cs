@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BossBehaviour : MonoBehaviour
@@ -13,6 +14,7 @@ public class BossBehaviour : MonoBehaviour
     Animator anim;
     Collider2D col;
     private GameObject bossHB;
+    public GameObject victoryUI;
 
 
     int health, maxHealth;
@@ -30,6 +32,7 @@ public class BossBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         bossHB = GameObject.FindWithTag("Footer");
         BossHealth();
         healthBar = GameObject.FindGameObjectWithTag("BossHealthBar").GetComponent<HealthBar>();
@@ -71,7 +74,7 @@ public class BossBehaviour : MonoBehaviour
                 anim.SetTrigger("Hit");
                 healthStats.DamageUnit(playerability.Damage);
                 healthBar.SetHealth(healthStats.Health);
-                Debug.Log(playerability.Damage);
+                Debug.Log("playerdamage:" + playerability.Damage);
                 Debug.Log(healthStats.Health);
             }
             else
@@ -82,6 +85,8 @@ public class BossBehaviour : MonoBehaviour
             }
         }
     }
+
+
 
     bool Vulnerable()
     {
@@ -107,12 +112,6 @@ public class BossBehaviour : MonoBehaviour
                 shieldHitCount = shieldLife;
                 vulnerableTime = timer;
             }
-
-            anim.SetTrigger("Hit");
-            healthStats.DamageUnit(playerability.Damage);
-            healthBar.SetHealth(healthStats.Health);
-            Debug.Log(playerability.Damage);
-            Debug.Log(healthStats.Health);
         }
     }
 
@@ -144,6 +143,7 @@ public class BossBehaviour : MonoBehaviour
     void BossDestroy()
     {
         bossHB.SetActive(false);
+        GameManager.Instance.Win();
         Destroy(gameObject);
     }
 

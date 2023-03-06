@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
     public static bool GameIsPaused = false;
     [SerializeField] public GameObject gui;
     [SerializeField] public GameObject pauseMenu;
+    public GameObject victoryUI;
+
 
     private Animator animator;
     public static GameManager Instance { get; private set; }
@@ -28,6 +30,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        victoryUI = GameObject.FindWithTag("Win");
+        victoryUI.SetActive(false);
         confirmBox = GameObject.FindWithTag("Confirm Box");
         confirmBox.SetActive(false);
         gui = GameObject.FindWithTag("GUI");
@@ -112,6 +116,12 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("Map");
+    }
+
+    public void Win()
+    {
+        victoryUI.SetActive(true);
+        Time.timeScale = 0f;
     }
 
     public void ConfirmBox()
