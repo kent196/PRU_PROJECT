@@ -17,6 +17,11 @@ public class ButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
+        if (gameObject.CompareTag("PowerUp"))
+        {
+            AudioManager.Instance.PlaySFX("PowUpBtn");
+        }
+        else AudioManager.Instance.PlaySFX("BtnEffect");
         rectTransform.localScale = new Vector3(maxScale, maxScale, 1);
     }
 

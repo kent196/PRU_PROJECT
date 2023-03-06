@@ -44,6 +44,7 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("EnemyAttackZone"))
         {
+            AudioManager.Instance.PlaySFX("EnemyHit");
             enemy = collision.GetComponentInParent<EnemyMelee>();
             StopAllCoroutines();
             OnBegin?.Invoke();
@@ -56,6 +57,7 @@ public class PlayerBehaviour : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Lightning"))
         {
+            AudioManager.Instance.PlaySFX("EnemyHit");
             boss = FindObjectOfType<BossAbility>();
             StopAllCoroutines();
             OnBegin?.Invoke();
@@ -68,6 +70,7 @@ public class PlayerBehaviour : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("BossAttackZone"))
         {
+            AudioManager.Instance.PlaySFX("EnemyHit");
             boss = FindObjectOfType<BossAbility>();
             StopAllCoroutines();
             OnBegin?.Invoke();
@@ -100,6 +103,7 @@ public class PlayerBehaviour : MonoBehaviour
         {
             OnDead?.Invoke();
             anim.SetBool("Dead", true);
+            AudioManager.Instance.PlaySFX("Lose");
             GameManager.Instance.EndGame();
         }
     }

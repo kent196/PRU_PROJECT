@@ -105,11 +105,12 @@ public class SpawnManager : MonoBehaviour
 
     void ChoosePowerUp()
     {
-        GameManager.Instance.PowerUpSelect();
+        AudioManager.Instance.PlaySFX("PowUpSelection"); GameManager.Instance.PowerUpSelect();
     }
 
     public void PowerUpSpdSelected()
     {
+        AudioManager.Instance.PlaySFX("PowUpPicked");
         playerMovement.GetComponent<PlayerMovement>().Speed += 0.1f;
         imgBoot.SetActive(true);
         animator.SetBool("isPowerUpPicked", true);
@@ -118,6 +119,7 @@ public class SpawnManager : MonoBehaviour
     }
     public void PowerUpDmgSelected()
     {
+        AudioManager.Instance.PlaySFX("PowUpPicked");
         imgSword.SetActive(true);
         playerAbilities.GetComponent<PlayerAbilities>().Damage += 20;
         animator.SetBool("isPowerUpPicked", true);
@@ -126,6 +128,7 @@ public class SpawnManager : MonoBehaviour
     }
     public void PowerUpHPSelected()
     {
+        AudioManager.Instance.PlaySFX("PowUpPicked");
         imgHeart.SetActive(true);
         playerBehavior.GetComponent<PlayerBehaviour>().Health += 500;
         Debug.Log(playerAbilities.GetComponent<PlayerBehaviour>().Health);
@@ -153,6 +156,8 @@ public class SpawnManager : MonoBehaviour
             }
             else
             {
+                AudioManager.Instance.PauseMusic("Theme");
+                AudioManager.Instance.PlayMusic("Boss Round");
                 enemyHB.SetActive(true);
                 Instantiate(randomEnemy, spawnPointFinalWave.position, Quaternion.identity);
                 currentWave.noOfEnemies--;

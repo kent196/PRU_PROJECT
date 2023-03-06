@@ -28,6 +28,7 @@ TagManager:
   - Boot
   - Sword
   - Heart
+  - PowerUp
   layers:
   - Default
   - TransparentFX

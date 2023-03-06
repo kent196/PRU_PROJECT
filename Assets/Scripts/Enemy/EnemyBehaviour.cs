@@ -38,6 +38,7 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Arrow"))
         {
+            AudioManager.Instance.PlaySFX("EnemyHit");
             StopAllCoroutines();
             OnBegin?.Invoke();
             anim.SetTrigger("Hit");
@@ -61,6 +62,7 @@ public class EnemyBehaviour : MonoBehaviour
         if (healthStats.Health <= 0)
         {
             col.isTrigger = true;
+
             anim.SetBool("Dead", true);
 
         }

@@ -69,6 +69,8 @@ public class UIBehavior : MonoBehaviour
 
     public void ConfirmYes()
     {
+        AudioManager.Instance.PauseMusic("Boss Round");
+        AudioManager.Instance.PauseMusic("Theme");
         GameManager.Instance.ConfirmYes();
     }
 

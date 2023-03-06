@@ -21,7 +21,7 @@ public class BossAbility : MonoBehaviour
     {
         castCooldown = duration;
         attackCooldown = duration;
-        
+
         anim = GetComponent<Animator>();
         player = GameObject.FindWithTag("Player").transform;
     }
@@ -73,6 +73,7 @@ public class BossAbility : MonoBehaviour
     {
         Vector2 playerPos = player.position;
         yield return new WaitForSeconds(0.5f);
+        AudioManager.Instance.PlaySFX("BossLightning");
         Instantiate<GameObject>(lightning, playerPos, Quaternion.identity);
         castCooldown = duration;
     }
@@ -83,6 +84,7 @@ public class BossAbility : MonoBehaviour
         direction.Normalize();
         anim.SetFloat("direction", direction.x);
         anim.SetBool("Attacking", true);
+        AudioManager.Instance.PlaySFX("BossMelee");
         yield return new WaitForSeconds(0.8f);
         anim.SetBool("Attacking", false);
         attackCooldown = duration;
