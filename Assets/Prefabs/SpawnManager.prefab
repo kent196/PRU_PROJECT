@@ -274,7 +274,7 @@ GameObject:
   - component: {fileID: 459438142}
   m_Layer: 0
   m_Name: SpawnPositions
-  m_TagString: Untagged
+  m_TagString: SpawnManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -376,9 +376,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: '2
-
-'
+  m_Text: 2
 --- !u!1 &548810894
 GameObject:
   m_ObjectHideFlags: 0
@@ -403,7 +401,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 548810894}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.55, y: 0.63, z: 0}
+  m_LocalPosition: {x: -6.741, y: 1.206, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -489,9 +487,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: '3
-
-'
+  m_Text: 3
 --- !u!1 &1430229494
 GameObject:
   m_ObjectHideFlags: 0
@@ -556,7 +552,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1495923709}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -16.5, y: 0.64, z: 0}
+  m_LocalPosition: {x: -4.79, y: 2.37, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -667,7 +663,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1966644865}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.19, y: 8.8, z: 0}
+  m_LocalPosition: {x: -2.974, y: 1.177, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -807,25 +803,15 @@ MonoBehaviour:
     typeOfEnemies:
     - {fileID: 2806545183240668346, guid: 209366766987f61458fe7a2f4d167e47, type: 3}
     spawnInterval: 1
-  - waveName: Wave 2
-    noOfEnemies: 4
-    typeOfEnemies:
-    - {fileID: 6332292487027598652, guid: 17f10d2305688c94cb38d1916e4c7400, type: 3}
-    spawnInterval: 1
-  - waveName: Wave 3
-    noOfEnemies: 5
-    typeOfEnemies:
-    - {fileID: 2767577240464828147, guid: 875588433ee0550419c3a5cab00c33d6, type: 3}
-    spawnInterval: 1
   - waveName: Final Wave
     noOfEnemies: 1
     typeOfEnemies:
-    - {fileID: 8328597180082769060, guid: 25fa9e5dd1acf154c8129cfdafb8369a, type: 3}
-    spawnInterval: 1
+    - {fileID: 4496609910997260578, guid: e8a76872128023944b9f8c2036e66f69, type: 3}
+    spawnInterval: 1.5
   spawnPoints:
   - {fileID: 548810895}
   - {fileID: 1966644866}
-  - {fileID: 1495923710}
+  spawnPointFinalWave: {fileID: 1495923710}
   animator: {fileID: 438371130}
   waveName: {fileID: 1508483092}
 --- !u!95 &438371130

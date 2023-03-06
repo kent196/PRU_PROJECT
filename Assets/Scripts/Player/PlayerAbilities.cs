@@ -14,11 +14,16 @@ public class PlayerAbilities : MonoBehaviour
     private float attackCooldown;
     private int attackDamage;
 
-    public int Damage { get { return attackDamage; } private set { attackDamage = value; } }
+
+    public int Damage { get { return attackDamage; } set { attackDamage = value; } }
+    private void Awake()
+    {
+        Damage = 50;
+
+    }
     // Start is called before the first frame update
     void Start()
     {
-        Damage = 2000;
         rigidbody2D = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         attackCooldown = cooldownTime;
@@ -30,6 +35,11 @@ public class PlayerAbilities : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.U))
         {
             Damage += 10;
+            Debug.Log(Damage);
+        }
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            Damage -= 10;
             Debug.Log(Damage);
         }
         if (CanAttack())

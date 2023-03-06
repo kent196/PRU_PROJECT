@@ -22,6 +22,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private Transform spawnPointFinalWave;
     [SerializeField] private Animator animator;
     [SerializeField] private Text waveName;
+    private GameObject playerAbilities, playerMovement, playerBehavior;
 
     private Wave currentWave;
     private int currentWaveNumber;
@@ -32,6 +33,9 @@ public class SpawnManager : MonoBehaviour
 
     private void Start()
     {
+        playerAbilities = GameObject.FindGameObjectWithTag("Player");
+        playerMovement = GameObject.FindGameObjectWithTag("Player");
+        playerBehavior = GameObject.FindGameObjectWithTag("Player");
         enemyHB = GameObject.FindWithTag("Footer");
         enemyHB.SetActive(false);
         waveName.text = waves[currentWaveNumber].waveName;
@@ -92,8 +96,25 @@ public class SpawnManager : MonoBehaviour
         GameManager.Instance.PowerUpSelect();
     }
 
-    public void PowerUpSelected()
+    public void PowerUpSpdSelected()
     {
+        playerAbilities.GetComponent<PlayerMovement>().Speed += 0.1f;
+
+        animator.SetBool("isPowerUpPicked", true);
+        GameManager.Instance.PowerUpSelected();
+
+    }
+    public void PowerUpDmgSelected()
+    {
+        playerAbilities.GetComponent<PlayerAbilities>().Damage += 20;
+        animator.SetBool("isPowerUpPicked", true);
+        GameManager.Instance.PowerUpSelected();
+
+    }
+    public void PowerUpHPSelected()
+    {
+        playerAbilities.GetComponent<PlayerBehaviour>().Health += 500;
+        Debug.Log(playerAbilities.GetComponent<PlayerBehaviour>().Health);
         animator.SetBool("isPowerUpPicked", true);
         GameManager.Instance.PowerUpSelected();
 

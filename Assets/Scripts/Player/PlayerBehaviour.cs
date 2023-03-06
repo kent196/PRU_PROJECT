@@ -18,6 +18,9 @@ public class PlayerBehaviour : MonoBehaviour
     private BossAbility boss;
 
 
+    public int Health { get { return health; } set { health = value; } }
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +31,7 @@ public class PlayerBehaviour : MonoBehaviour
         healthStats = new HealthStats(1000, 1000);
         health = healthStats.Health;
         maxHealth = healthStats.MaxHealth;
-        maxHealth = health;
+        health = maxHealth;
     }
 
     // Update is called once per frame
@@ -50,9 +53,10 @@ public class PlayerBehaviour : MonoBehaviour
             IsDamaged(enemy.Damage);
             Debug.Log("Health = " + health + "Max health = " + maxHealth);
             StartCoroutine(Reset());
-        }else if (collision.gameObject.CompareTag("Lightning"))
+        }
+        else if (collision.gameObject.CompareTag("Lightning"))
         {
-            boss=FindObjectOfType<BossAbility>();
+            boss = FindObjectOfType<BossAbility>();
             StopAllCoroutines();
             OnBegin?.Invoke();
             anim.SetTrigger("Hit");
@@ -61,7 +65,8 @@ public class PlayerBehaviour : MonoBehaviour
             IsDamaged(boss.Damage);
             Debug.Log("Health = " + health + "Max health = " + maxHealth);
             StartCoroutine(Reset());
-        }else if (collision.gameObject.CompareTag("BossAttackZone"))
+        }
+        else if (collision.gameObject.CompareTag("BossAttackZone"))
         {
             boss = FindObjectOfType<BossAbility>();
             StopAllCoroutines();

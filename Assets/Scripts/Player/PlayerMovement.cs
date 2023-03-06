@@ -5,9 +5,10 @@ using UnityEngine.Events;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 1.5f;
+    [SerializeField] private float moveSpeed;
     [SerializeField] private TrailRenderer tr;
-    public float Speed { get { return moveSpeed; } private set { moveSpeed = value; } }
+    public float Speed { get { return moveSpeed; } set { moveSpeed = value; } }
+
 
 
     Rigidbody2D rb;
@@ -24,7 +25,10 @@ public class PlayerMovement : MonoBehaviour
     private float dashCounter;
     private float dashCoolCounter;
     private bool dashing = false;
-
+    private void Awake()
+    {
+        Speed = 1.5f;
+    }
     // Start is called before the first frame update
     void Start()
     {
