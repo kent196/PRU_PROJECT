@@ -142,6 +142,8 @@ public class BossBehaviour : MonoBehaviour
 
     void BossDestroy()
     {
+        AudioManager.Instance.PauseMusic("Boss Round");
+        AudioManager.Instance.PlaySFX("Win");
         bossHB.SetActive(false);
         GameManager.Instance.Win();
         Destroy(gameObject);

@@ -62,8 +62,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
+
             if (dashCoolCounter <= 0 && dashCounter <= 0)
             {
+                AudioManager.Instance.PlaySFX("Dash");
                 activeMoveSpeed = dashSpeed;
                 dashCounter = dashLength;
                 dashing = true;
