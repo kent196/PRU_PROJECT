@@ -25,6 +25,9 @@ TagManager:
   - Footer
   - WinUI
   - Win
+  - Boot
+  - Sword
+  - Heart
   layers:
   - Default
   - TransparentFX

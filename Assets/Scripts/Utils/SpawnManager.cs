@@ -22,7 +22,13 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private Transform spawnPointFinalWave;
     [SerializeField] private Animator animator;
     [SerializeField] private Text waveName;
-    private GameObject playerAbilities, playerMovement, playerBehavior;
+    private GameObject
+        playerAbilities,
+        playerMovement,
+        playerBehavior,
+        imgBoot,
+        imgSword,
+        imgHeart;
 
     private Wave currentWave;
     private int currentWaveNumber;
@@ -33,6 +39,12 @@ public class SpawnManager : MonoBehaviour
 
     private void Start()
     {
+        imgBoot = GameObject.FindGameObjectWithTag("Boot");
+        imgBoot.SetActive(false);
+        imgSword = GameObject.FindGameObjectWithTag("Sword");
+        imgSword.SetActive(false);
+        imgHeart = GameObject.FindGameObjectWithTag("Heart");
+        imgHeart.SetActive(false);
         playerAbilities = GameObject.FindGameObjectWithTag("Player");
         playerMovement = GameObject.FindGameObjectWithTag("Player");
         playerBehavior = GameObject.FindGameObjectWithTag("Player");
@@ -98,14 +110,15 @@ public class SpawnManager : MonoBehaviour
 
     public void PowerUpSpdSelected()
     {
-        playerAbilities.GetComponent<PlayerMovement>().Speed += 0.1f;
-
+        playerMovement.GetComponent<PlayerMovement>().Speed += 0.1f;
+        imgBoot.SetActive(true);
         animator.SetBool("isPowerUpPicked", true);
         GameManager.Instance.PowerUpSelected();
 
     }
     public void PowerUpDmgSelected()
     {
+        imgSword.SetActive(true);
         playerAbilities.GetComponent<PlayerAbilities>().Damage += 20;
         animator.SetBool("isPowerUpPicked", true);
         GameManager.Instance.PowerUpSelected();
@@ -113,7 +126,8 @@ public class SpawnManager : MonoBehaviour
     }
     public void PowerUpHPSelected()
     {
-        playerAbilities.GetComponent<PlayerBehaviour>().Health += 500;
+        imgHeart.SetActive(true);
+        playerBehavior.GetComponent<PlayerBehaviour>().Health += 500;
         Debug.Log(playerAbilities.GetComponent<PlayerBehaviour>().Health);
         animator.SetBool("isPowerUpPicked", true);
         GameManager.Instance.PowerUpSelected();
