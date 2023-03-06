@@ -16,6 +16,7 @@ public class UIBehavior : MonoBehaviour
 
     private void Start()
     {
+
         playerAbilities = GameObject.FindGameObjectWithTag("Player");
         playerMovement = GameObject.FindGameObjectWithTag("Player");
         atk = playerAbilities.GetComponent<PlayerAbilities>().Damage;
