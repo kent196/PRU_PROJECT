@@ -10,6 +10,7 @@ public class StartUI : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("Map");
+        AudioManager.Instance.PlayMusic("Theme");
     }
 
     public void Quit()

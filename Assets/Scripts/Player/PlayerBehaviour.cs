@@ -103,6 +103,9 @@ public class PlayerBehaviour : MonoBehaviour
         {
             OnDead?.Invoke();
             anim.SetBool("Dead", true);
+            AudioManager.Instance.PauseMusic("Theme");
+            AudioManager.Instance.PauseMusic("Boss Round");
+
             AudioManager.Instance.PlaySFX("Lose");
             GameManager.Instance.EndGame();
         }

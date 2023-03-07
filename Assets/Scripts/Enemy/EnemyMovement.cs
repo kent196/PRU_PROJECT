@@ -45,6 +45,8 @@ public class EnemyMovement : MonoBehaviour
             direction = player.position - transform.position;
             direction.Normalize();
             rb.velocity = direction * speed;
+
+            Debug.Log(rb.velocity);
         }
     }
     void GetAnimation()
