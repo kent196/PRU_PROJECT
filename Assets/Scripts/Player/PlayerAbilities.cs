@@ -5,8 +5,10 @@ using UnityEngine;
 public class PlayerAbilities : MonoBehaviour
 {
     [SerializeField] private GameObject projectilePrefab;
+    [SerializeField] private AudioSource audioSource;
     private float projectileSpeed = 5.0f;
 
+    AudioClip spearThrow;
     Rigidbody2D rigidbody2D;
     Animator anim;
 
@@ -24,6 +26,9 @@ public class PlayerAbilities : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        spearThrow = Resources.Load<AudioClip>("SFX/spearThrow5");
+        audioSource = GetComponent<AudioSource>();
+        Damage = 2000;
         rigidbody2D = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         attackCooldown = cooldownTime;
@@ -78,5 +83,16 @@ public class PlayerAbilities : MonoBehaviour
     Vector2 GetAttackDirection()
     {
         return new Vector2(anim.GetFloat("lastMoveX"), anim.GetFloat("lastMoveY"));
+    }
+
+    IEnumerator ThrowSpear()
+    {
+        yield return new WaitForSeconds(.1f);
+        GameObject projectileShooting = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+        projectileShooting.GetComponent<Rigidbody2D>().velocity = GetAttackDirection() * projectileSpeed;
+        projectileShooting.transform.Rotate(.0f, .0f, Mathf.Atan2(GetAttackDirection().y, GetAttackDirection().x) * Mathf.Rad2Deg);
+        Destroy(projectileShooting, 3.0f);
+        anim.SetTrigger("Attacking");
+        attackCooldown = cooldownTime;
     }
 }

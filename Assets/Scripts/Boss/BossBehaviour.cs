@@ -24,7 +24,6 @@ public class BossBehaviour : MonoBehaviour
     bool isVulnerable = false;
     int shieldHitCount;
     int shieldLife = 10;
-
     int explosionCount = 5;
     float explosionRadius = .5f;
 
