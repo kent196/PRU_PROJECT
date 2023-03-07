@@ -84,7 +84,6 @@ public class BossAbility : MonoBehaviour
         direction.Normalize();
         anim.SetFloat("direction", direction.x);
         anim.SetBool("Attacking", true);
-        AudioManager.Instance.PlaySFX("BossMelee");
         yield return new WaitForSeconds(0.8f);
         anim.SetBool("Attacking", false);
         attackCooldown = duration;

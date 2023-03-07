@@ -46,10 +46,13 @@ public class UIBehavior : MonoBehaviour
         GameManager.Instance.ResumeGame();
     }
 
+
     public void Restart()
     {
+        AudioManager.Instance.PlayMusic("Theme");
         GameManager.Instance.RestartGame();
     }
+
 
     public void ConfirmBox()
     {

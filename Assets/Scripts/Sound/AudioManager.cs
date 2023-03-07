@@ -66,6 +66,7 @@ public class AudioManager : MonoBehaviour
         }
         else
         {
+            sfxSource.volume = 0.2f;
             sfxSource.PlayOneShot(s.clip);
         }
     }
