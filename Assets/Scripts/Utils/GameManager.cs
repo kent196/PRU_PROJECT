@@ -70,6 +70,7 @@ public class GameManager : MonoBehaviour
 
     public void ResumeGame()
     {
+        PlayTimer.Instance.RunTimer();
         pauseMenu.SetActive(false);
         gui.SetActive(true);
         Time.timeScale = 1f;
@@ -78,6 +79,7 @@ public class GameManager : MonoBehaviour
 
     public void PauseGame()
     {
+        PlayTimer.Instance.PauseTimer();
         pauseMenu.SetActive(true);
         gui.SetActive(false);
         Time.timeScale = 0f;
@@ -98,6 +100,7 @@ public class GameManager : MonoBehaviour
 
     public void EndGame()
     {
+        PlayTimer.Instance.PauseTimer();
         Time.timeScale = 0f;
         gui.SetActive(false);
         endMenu.SetActive(true);
@@ -105,6 +108,7 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
+        PlayTimer.Instance.RestartTimer();
         Time.timeScale = 1f;
         gui.SetActive(true);
         endMenu.SetActive(false);

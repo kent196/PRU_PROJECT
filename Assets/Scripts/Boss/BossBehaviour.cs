@@ -20,7 +20,7 @@ public class BossBehaviour : MonoBehaviour
     int health, maxHealth;
 
     float vulnerableTime;
-    float timer = 2f;
+    float timer = 4f;
     bool isVulnerable = false;
     int shieldHitCount;
     int shieldLife = 10;

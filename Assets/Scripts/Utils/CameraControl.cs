@@ -14,7 +14,7 @@ public class CameraControl : MonoBehaviour
     void Start()
     {
         camera = playerCamera.GetComponent<CinemachineVirtualCamera>();
-        anim = boss.GetComponent<Animator>();
+        
     }
 
     // Update is called once per frame
@@ -22,10 +22,28 @@ public class CameraControl : MonoBehaviour
     {
         if(boss != null)
         {
-            if (anim.GetBool("Dead"))
+            anim = boss.GetComponent<Animator>();
+            if (anim.GetBool("Dead")==true)
             {
                 camera.Priority = 0;
             }
+        }
+        else
+        {
+            Debug.Log("no boss");
+        }
+        
+    }
+
+    private void FixedUpdate()
+    {
+        if(boss == null)
+        {
+            boss = GameObject.FindWithTag("Boss");
+        }
+        else
+        {
+            return;
         }
         
     }

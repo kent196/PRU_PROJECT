@@ -75,23 +75,15 @@ public class EnemyBehaviour : MonoBehaviour
         var UI = ui.GetComponent<UIBehavior>();
         if (this.gameObject.CompareTag("Skelly"))
         {
-
-            UI.AddPoints(100);
         }
         if (this.gameObject.CompareTag("Goblin"))
         {
-
-            UI.AddPoints(200);
         }
         if (this.gameObject.CompareTag("Mummy"))
         {
-
-            UI.AddPoints(300);
         }
         if (this.gameObject.CompareTag("Orc"))
         {
-
-            UI.AddPoints(400);
         }
         Destroy(gameObject);
     }

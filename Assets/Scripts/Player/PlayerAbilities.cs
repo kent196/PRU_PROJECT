@@ -28,7 +28,6 @@ public class PlayerAbilities : MonoBehaviour
     {
         spearThrow = Resources.Load<AudioClip>("SFX/spearThrow5");
         audioSource = GetComponent<AudioSource>();
-        Damage = 2000;
         rigidbody2D = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         attackCooldown = cooldownTime;
@@ -83,16 +82,5 @@ public class PlayerAbilities : MonoBehaviour
     Vector2 GetAttackDirection()
     {
         return new Vector2(anim.GetFloat("lastMoveX"), anim.GetFloat("lastMoveY"));
-    }
-
-    IEnumerator ThrowSpear()
-    {
-        yield return new WaitForSeconds(.1f);
-        GameObject projectileShooting = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-        projectileShooting.GetComponent<Rigidbody2D>().velocity = GetAttackDirection() * projectileSpeed;
-        projectileShooting.transform.Rotate(.0f, .0f, Mathf.Atan2(GetAttackDirection().y, GetAttackDirection().x) * Mathf.Rad2Deg);
-        Destroy(projectileShooting, 3.0f);
-        anim.SetTrigger("Attacking");
-        attackCooldown = cooldownTime;
     }
 }
