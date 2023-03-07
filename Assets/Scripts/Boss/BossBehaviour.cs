@@ -20,7 +20,7 @@ public class BossBehaviour : MonoBehaviour
     int health, maxHealth;
 
     float vulnerableTime;
-    float timer = 2f;
+    float timer = 6f;
     bool isVulnerable = false;
     int shieldHitCount;
     int shieldLife = 10;
@@ -127,7 +127,15 @@ public class BossBehaviour : MonoBehaviour
 
     void BossExplosion()
     {
+        AudioManager.Instance.PauseMusic("Boss Round");
+        AudioManager.Instance.PlaySFX("BossExplode");
         StartCoroutine(Explosion());
+    }
+
+    public void BossMelee()
+    {
+        AudioManager.Instance.PlaySFX("BossMelee");
+
     }
 
     IEnumerator Explosion()

@@ -47,6 +47,8 @@ public class EnemyBehaviour : MonoBehaviour
             healthStats.DamageUnit(playerability.Damage);
             Debug.Log(playerability.Damage);
             StartCoroutine(Reset());
+            DmgPopUp.Create(this.transform.position, playerability.Damage);
+
         }
     }
 
