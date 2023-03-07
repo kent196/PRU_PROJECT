@@ -118,12 +118,14 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
+        PlayTimer.Instance.RunTimer();
         Time.timeScale = 1f;
         SceneManager.LoadScene("Map");
     }
 
     public void Win()
     {
+        PlayTimer.Instance.EndTimer();
         victoryUI.SetActive(true);
         Time.timeScale = 0f;
     }

@@ -10,9 +10,13 @@ public class PlayTimer : MonoBehaviour
 
     public bool activated = false;
     private string time;
+    private float timer = 0;
     private int seconds = 0;
     private int minutes = 0;
     private int hours = 0;
+    private int bestSeconds = 0;
+    private int bestMinutes = 0;
+    private int bestHours = 0;
 
     public static PlayTimer Instance { get; private set; }
 
@@ -31,45 +35,53 @@ public class PlayTimer : MonoBehaviour
     void Start()
     {
         bestPlayTime = SaveSystem.GetInt("bestPlayTime");
-        activated = true;
-        StartCoroutine(Timer());
     }
 
-    IEnumerator Timer()
+
+    private void Update()
     {
-        while (activated)
+        if (activated)
         {
-            yield return new WaitForSeconds(1);
-            playTime += 1;
+            timer += Time.deltaTime;
+            playTime = Mathf.RoundToInt(timer);
             seconds = playTime % 60;
             minutes = (playTime / 60) % 60;
             hours = (playTime / 3600) % 24;
             SetTime();
             Debug.Log(time);
         }
-
     }
 
-
-    private void Update()
+    public string GetBestTime()
     {
-        Debug.Log(playTime);
+        bestSeconds = bestPlayTime % 60;
+        bestMinutes = (bestPlayTime / 60) % 60;
+        bestHours = (bestPlayTime / 3600) % 24;
+        if (bestHours > 0)
+        {
+            return "Personal best: " + bestHours.ToString() + ":" + bestMinutes.ToString() + ":" + bestSeconds.ToString();
+        }
+        else
+        {
+            return "Personal best: " + bestMinutes.ToString() + ":" + bestSeconds.ToString();
+        }
+
     }
 
     public string GetTime()
     {
-            return time;
+        return time;
     }
 
     private void SetTime()
     {
         if (hours > 0)
         {
-            time = "Time:" + hours.ToString() + ":" + minutes.ToString() + ":" + seconds.ToString();
+            time = "Time: " + hours.ToString() + ":" + minutes.ToString() + ":" + seconds.ToString();
         }
         else
         {
-            time = "Time:" + minutes.ToString() + ":" + seconds.ToString();
+            time = "Time: " + minutes.ToString() + ":" + seconds.ToString();
         }
 
     }
