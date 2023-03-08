@@ -26,12 +26,12 @@
  </tile>
  <tile id="39">
   <objectgroup draworder="index" id="2">
-   <object id="1" x="0" y="0" width="16" height="16"/>
+   <object id="5" x="2.25" y="2.125" width="11.5" height="11.75"/>
   </objectgroup>
  </tile>
  <tile id="47">
   <objectgroup draworder="index" id="2">
-   <object id="1" x="0" y="0" width="16" height="16"/>
+   <object id="3" x="2.1875" y="2.0625" width="11.625" height="11.875"/>
   </objectgroup>
  </tile>
  <tile id="48">

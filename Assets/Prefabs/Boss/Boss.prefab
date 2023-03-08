@@ -238,6 +238,7 @@ GameObject:
   - component: {fileID: 66988120}
   - component: {fileID: 66988116}
   - component: {fileID: 66988124}
+  - component: {fileID: -5030000414415637278}
   m_Layer: 7
   m_Name: Boss
   m_TagString: Boss
@@ -393,3 +394,20 @@ MonoBehaviour:
   barrier: {fileID: 9171258081955804805, guid: d7bc2c992909f2742aa335c193f869de, type: 3}
   explosion: {fileID: 8211465135694872261, guid: f8e8e143bb0599549a92d11970b2182b,
     type: 3}
+  healthBar: {fileID: 0}
+  victoryUI: {fileID: 0}
+--- !u!114 &-5030000414415637278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4496609910997260578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 411060de4483b5e4c9847cd3cbc18554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetColor: {r: 0.8113208, g: 0.7442695, b: 0.17986828, a: 1}
+  needArrowIndicator: 1
+  indicator: {fileID: 0}

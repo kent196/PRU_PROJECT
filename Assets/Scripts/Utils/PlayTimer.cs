@@ -34,7 +34,7 @@ public class PlayTimer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        bestPlayTime = SaveSystem.GetInt("bestPlayTime");
+        GetBestTime();
     }
 
 
@@ -48,12 +48,13 @@ public class PlayTimer : MonoBehaviour
             minutes = (playTime / 60) % 60;
             hours = (playTime / 3600) % 24;
             SetTime();
-            Debug.Log(time);
+            Debug.Log("playtime:");
         }
     }
 
     public string GetBestTime()
     {
+        bestPlayTime = SaveSystem.GetInt("bestPlayTime");
         bestSeconds = bestPlayTime % 60;
         bestMinutes = (bestPlayTime / 60) % 60;
         bestHours = (bestPlayTime / 3600) % 24;
@@ -98,8 +99,9 @@ public class PlayTimer : MonoBehaviour
 
     public void RestartTimer()
     {
-        playTime = 0;
         activated = true;
+        timer = 0;
+
     }
 
     public void EndTimer()
@@ -108,6 +110,7 @@ public class PlayTimer : MonoBehaviour
         if (bestPlayTime == 0)
         {
             SaveSystem.SetInt("bestPlayTime", playTime);
+            SaveSystem.SaveToDisk();
         }
         else
         {
@@ -115,6 +118,7 @@ public class PlayTimer : MonoBehaviour
             {
                 SaveSystem.SetInt("bestPlayTime", playTime);
                 SaveSystem.SaveToDisk();
+                Debug.Log("game saved");
             }
             else
             {

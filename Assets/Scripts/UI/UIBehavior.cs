@@ -31,6 +31,7 @@ public class UIBehavior : MonoBehaviour
         spd = playerMovement.GetComponent<PlayerMovement>().Speed;
         txtAtk.text = "Damage: " + atk.ToString();
         txtSpd.text = "Speed: " + spd.ToString();
+        txtTime.text = "" + PlayTimer.Instance.GetTime();
         txtFinalTime.text = ""+PlayTimer.Instance.GetTime();
     }
 
@@ -44,6 +45,7 @@ public class UIBehavior : MonoBehaviour
 
     public void Resume()
     {
+        PlayTimer.Instance.RunTimer();
         GameManager.Instance.ResumeGame();
     }
 
@@ -51,6 +53,7 @@ public class UIBehavior : MonoBehaviour
     public void Restart()
     {
         AudioManager.Instance.PlayMusic("Theme");
+        PlayTimer.Instance.RestartTimer();
         GameManager.Instance.RestartGame();
     }
 

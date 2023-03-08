@@ -11,7 +11,7 @@ public class StartUI : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene("Map");
         AudioManager.Instance.PlayMusic("Theme");
-        PlayTimer.Instance.RunTimer();
+        PlayTimer.Instance.RestartTimer();
     }
 
     public void Quit()

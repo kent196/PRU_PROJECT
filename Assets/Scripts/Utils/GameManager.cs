@@ -126,6 +126,7 @@ public class GameManager : MonoBehaviour
     public void Win()
     {
         PlayTimer.Instance.EndTimer();
+        PlayTimer.Instance.GetBestTime();
         victoryUI.SetActive(true);
         Time.timeScale = 0f;
     }
