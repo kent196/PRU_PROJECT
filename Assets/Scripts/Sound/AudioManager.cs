@@ -2,9 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
+    private Scene scene;
     public static AudioManager Instance;
 
     public Sound[] musicSounds, sfxSounds;
@@ -25,7 +27,12 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        PlayMusic("Theme");
+        scene = SceneManager.GetActiveScene();
+        if (scene.name == "Start")
+        {
+            PlayMusic("LobbyBGM");
+        }
+        else PlayMusic("Theme");
     }
 
     public void PlayMusic(string name)
@@ -70,6 +77,16 @@ public class AudioManager : MonoBehaviour
             sfxSource.volume = vol;
             sfxSource.PlayOneShot(s.clip);
         }
+    }
+
+    public void MusicVolume(float vol)
+    {
+        musicSource.volume = vol;
+    }
+
+    public void SFXVolume(float vol)
+    {
+        sfxSource.volume = vol;
     }
 
 

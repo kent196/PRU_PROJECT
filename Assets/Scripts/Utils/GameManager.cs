@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public static bool GameIsPaused = false;
     [SerializeField] public GameObject gui;
     [SerializeField] public GameObject pauseMenu;
-    public GameObject victoryUI;
+    public GameObject victoryUI, settingUI;
 
 
     private Animator animator;
@@ -30,6 +30,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        settingUI = GameObject.FindWithTag("Settings");
+        settingUI.SetActive(false);
         victoryUI = GameObject.FindWithTag("Win");
         victoryUI.SetActive(false);
         confirmBox = GameObject.FindWithTag("Confirm Box");
@@ -49,6 +51,10 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         HandlePauseGame();
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            settingUI.SetActive(false);
+        }
 
     }
 
@@ -92,6 +98,12 @@ public class GameManager : MonoBehaviour
         powerUpSelect.SetActive(true);
     }
 
+    public void OpenSettings()
+    {
+
+        settingUI.SetActive(true);
+
+    }
     public void PowerUpSelected()
     {
         Time.timeScale = 1f;
