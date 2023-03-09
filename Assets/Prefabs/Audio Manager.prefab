@@ -51,6 +51,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: f5c714fe64edeb146a85db6635aa2833, type: 3}
   - name: Boss Round
     clip: {fileID: 8300000, guid: 21fc7a036fe4f0d4a89c5735ed04b0a8, type: 3}
+  - name: LobbyBGM
+    clip: {fileID: 8300000, guid: cb518f0c95e8a93488b891f076f8bfc1, type: 3}
   sfxSounds:
   - name: Dash
     clip: {fileID: 8300000, guid: dabc3e3c97406ad428f66626a800381b, type: 3}

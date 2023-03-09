@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class UIBehavior : MonoBehaviour
 {
     public GameObject sm;
-    public Text txtAtk, txtSpd, txtTime, txtFinalTime,txtBestTime;
+    public Text txtAtk, txtSpd, txtTime, txtFinalTime, txtBestTime;
     private int atk;
     private float spd;
     private GameObject playerAbilities;
@@ -22,7 +22,7 @@ public class UIBehavior : MonoBehaviour
         sm = GameObject.FindGameObjectWithTag("SpawnManager");
         txtAtk.text = "Damage: " + atk.ToString();
         txtSpd.text = "Speed: " + spd.ToString();
-        txtTime.text =""+ PlayTimer.Instance.GetTime();
+        txtTime.text = "" + PlayTimer.Instance.GetTime();
         txtBestTime.text = PlayTimer.Instance.GetBestTime();
     }
     private void Update()
@@ -32,9 +32,8 @@ public class UIBehavior : MonoBehaviour
         txtAtk.text = "Damage: " + atk.ToString();
         txtSpd.text = "Speed: " + spd.ToString();
         txtTime.text = "" + PlayTimer.Instance.GetTime();
-        txtFinalTime.text = ""+PlayTimer.Instance.GetTime();
+        txtFinalTime.text = "" + PlayTimer.Instance.GetTime();
     }
-
 
     public void PowerUpSelected()
     {
@@ -57,6 +56,10 @@ public class UIBehavior : MonoBehaviour
         GameManager.Instance.RestartGame();
     }
 
+    public void OpenSettings()
+    {
+        GameManager.Instance.OpenSettings();
+    }
 
     public void ConfirmBox()
     {
