@@ -5,8 +5,10 @@ using UnityEngine;
 public class PlayerAbilities : MonoBehaviour
 {
     [SerializeField] private GameObject projectilePrefab;
+    [SerializeField] private AudioSource audioSource;
     private float projectileSpeed = 5.0f;
 
+    AudioClip spearThrow;
     Rigidbody2D rigidbody2D;
     Animator anim;
 
@@ -24,6 +26,8 @@ public class PlayerAbilities : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        spearThrow = Resources.Load<AudioClip>("SFX/spearThrow5");
+        audioSource = GetComponent<AudioSource>();
         rigidbody2D = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         attackCooldown = cooldownTime;
