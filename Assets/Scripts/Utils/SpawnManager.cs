@@ -105,13 +105,14 @@ public class SpawnManager : MonoBehaviour
 
     void ChoosePowerUp()
     {
-        AudioManager.Instance.PlaySFX("PowUpSelection"); GameManager.Instance.PowerUpSelect();
+        AudioManager.Instance.PlaySFX("PowUpSelection", .8f); GameManager.Instance.PowerUpSelect();
     }
 
     public void PowerUpSpdSelected()
     {
-        AudioManager.Instance.PlaySFX("PowUpPicked");
+        AudioManager.Instance.PlaySFX("PowUpPicked", .8f);
         playerMovement.GetComponent<PlayerMovement>().Speed += 0.1f;
+        playerBehavior.GetComponent<PlayerBehaviour>().Heal(150);
         imgBoot.SetActive(true);
         animator.SetBool("isPowerUpPicked", true);
         GameManager.Instance.PowerUpSelected();
@@ -119,19 +120,21 @@ public class SpawnManager : MonoBehaviour
     }
     public void PowerUpDmgSelected()
     {
-        AudioManager.Instance.PlaySFX("PowUpPicked");
+        AudioManager.Instance.PlaySFX("PowUpPicked", .8f);
         imgSword.SetActive(true);
         playerAbilities.GetComponent<PlayerAbilities>().Damage += 20;
+        playerBehavior.GetComponent<PlayerBehaviour>().Heal(150);
         animator.SetBool("isPowerUpPicked", true);
         GameManager.Instance.PowerUpSelected();
 
     }
     public void PowerUpHPSelected()
     {
-        AudioManager.Instance.PlaySFX("PowUpPicked");
+        AudioManager.Instance.PlaySFX("PowUpPicked", .8f);
         imgHeart.SetActive(true);
-        playerBehavior.GetComponent<PlayerBehaviour>().Health += 500;
-        Debug.Log(playerAbilities.GetComponent<PlayerBehaviour>().Health);
+        playerBehavior.GetComponent<PlayerBehaviour>().MaxHealthBuff(500);
+        playerBehavior.GetComponent<PlayerBehaviour>().Heal(150);
+        Debug.Log(playerAbilities.GetComponent<PlayerBehaviour>().MaxHealth);
         animator.SetBool("isPowerUpPicked", true);
         GameManager.Instance.PowerUpSelected();
 

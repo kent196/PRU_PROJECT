@@ -73,7 +73,7 @@ public class BossAbility : MonoBehaviour
     {
         Vector2 playerPos = player.position;
         yield return new WaitForSeconds(0.5f);
-        AudioManager.Instance.PlaySFX("BossLightning");
+        AudioManager.Instance.PlaySFX("BossLightning", 0.2f);
         Instantiate<GameObject>(lightning, playerPos, Quaternion.identity);
         castCooldown = duration;
     }

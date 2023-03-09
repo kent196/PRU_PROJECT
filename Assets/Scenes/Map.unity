@@ -1064,9 +1064,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2626038545934025706, guid: 9abe31a492a6d5d42944863d4729bd43,
         type: 3}
-      propertyPath: sfxSounds.Array.data[4].clip
+      propertyPath: sfxSounds.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2626038545934025706, guid: 9abe31a492a6d5d42944863d4729bd43,
+        type: 3}
+      propertyPath: sfxSounds.Array.data[7].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 609035d2a07247f4688e4248653bd192, type: 3}
+      objectReference: {fileID: 8300000, guid: 32db3394858f62a449b6bb3c94b18367, type: 3}
+    - target: {fileID: 2626038545934025706, guid: 9abe31a492a6d5d42944863d4729bd43,
+        type: 3}
+      propertyPath: sfxSounds.Array.data[7].name
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2626038545934025707, guid: 9abe31a492a6d5d42944863d4729bd43,
         type: 3}
       propertyPath: m_RootOrder
@@ -1134,6 +1144,10 @@ PrefabInstance:
     - target: {fileID: 999106920, guid: 912ff235c1b96274d846a36ceeea86a1, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -17.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1163452763, guid: 912ff235c1b96274d846a36ceeea86a1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.000015258789
       objectReference: {fileID: 0}
     - target: {fileID: 2013208869, guid: 912ff235c1b96274d846a36ceeea86a1, type: 3}
       propertyPath: txtBestTime

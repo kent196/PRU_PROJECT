@@ -19,6 +19,8 @@ public class PlayerBehaviour : MonoBehaviour
 
 
     public int Health { get { return health; } set { health = value; } }
+    public int MaxHealth { get { return maxHealth; } set { maxHealth = value; } }
+
 
 
     // Start is called before the first frame update
@@ -31,20 +33,22 @@ public class PlayerBehaviour : MonoBehaviour
         healthStats = new HealthStats(1000, 1000);
         health = healthStats.Health;
         maxHealth = healthStats.MaxHealth;
-        health = maxHealth;
+
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         Dead();
+        healthBar.SetHealth(health);
     }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("EnemyAttackZone"))
         {
-            AudioManager.Instance.PlaySFX("EnemyHit");
+            AudioManager.Instance.PlaySFX("EnemyHit", 0.2f);
             enemy = collision.GetComponentInParent<EnemyMelee>();
             StopAllCoroutines();
             OnBegin?.Invoke();
@@ -57,7 +61,7 @@ public class PlayerBehaviour : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Lightning"))
         {
-            AudioManager.Instance.PlaySFX("EnemyHit");
+            AudioManager.Instance.PlaySFX("EnemyHit", 0.2f);
             boss = FindObjectOfType<BossAbility>();
             StopAllCoroutines();
             OnBegin?.Invoke();
@@ -68,7 +72,7 @@ public class PlayerBehaviour : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("BossAttackZone"))
         {
-            AudioManager.Instance.PlaySFX("EnemyHit");
+            AudioManager.Instance.PlaySFX("EnemyHit", 0.2f);
             boss = FindObjectOfType<BossAbility>();
             StopAllCoroutines();
             OnBegin?.Invoke();
@@ -88,6 +92,19 @@ public class PlayerBehaviour : MonoBehaviour
         healthBar.SetHealth(health);
     }
 
+    public void MaxHealthBuff(int hp)
+    {
+        maxHealth += hp;
+        healthBar.SetMaxHealth(maxHealth);
+    }
+
+    public void Heal(int hp)
+    {
+        health += hp;
+        DmgPopUp.Create(this.transform.position, hp);
+        healthBar.SetHealth(health);
+    }
+
     private IEnumerator Reset()
     {
         yield return new WaitForSeconds(.15f);
@@ -104,7 +121,7 @@ public class PlayerBehaviour : MonoBehaviour
             AudioManager.Instance.PauseMusic("Theme");
             AudioManager.Instance.PauseMusic("Boss Round");
 
-            AudioManager.Instance.PlaySFX("Lose");
+            AudioManager.Instance.PlaySFX("Lose", 0.5f);
             GameManager.Instance.EndGame();
         }
     }
