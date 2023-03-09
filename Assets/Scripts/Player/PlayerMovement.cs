@@ -65,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (dashCoolCounter <= 0 && dashCounter <= 0)
             {
-                AudioManager.Instance.PlaySFX("Dash");
+                AudioManager.Instance.PlaySFX("Dash", 0.2f);
                 activeMoveSpeed = dashSpeed;
                 dashCounter = dashLength;
                 dashing = true;

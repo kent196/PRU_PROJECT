@@ -38,7 +38,7 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Arrow"))
         {
-            AudioManager.Instance.PlaySFX("EnemyHit");
+            AudioManager.Instance.PlaySFX("EnemyHit", 0.2f);
             StopAllCoroutines();
             OnBegin?.Invoke();
             anim.SetTrigger("Hit");

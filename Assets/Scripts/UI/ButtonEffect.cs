@@ -19,9 +19,9 @@ public class ButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     {
         if (gameObject.CompareTag("PowerUp"))
         {
-            AudioManager.Instance.PlaySFX("PowUpBtn");
+            AudioManager.Instance.PlaySFX("PowUpBtn", .8f);
         }
-        else AudioManager.Instance.PlaySFX("BtnEffect");
+        else AudioManager.Instance.PlaySFX("BtnEffect", .8f);
         rectTransform.localScale = new Vector3(maxScale, maxScale, 1);
     }
 

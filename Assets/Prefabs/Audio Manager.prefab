@@ -50,7 +50,7 @@ MonoBehaviour:
   - name: Theme
     clip: {fileID: 8300000, guid: f5c714fe64edeb146a85db6635aa2833, type: 3}
   - name: Boss Round
-    clip: {fileID: 8300000, guid: 810c829f846e1ff479bb16c9fd804ba5, type: 3}
+    clip: {fileID: 8300000, guid: 21fc7a036fe4f0d4a89c5735ed04b0a8, type: 3}
   sfxSounds:
   - name: Dash
     clip: {fileID: 8300000, guid: dabc3e3c97406ad428f66626a800381b, type: 3}
@@ -61,7 +61,7 @@ MonoBehaviour:
   - name: BossLightning
     clip: {fileID: 8300000, guid: 2fb66dc2f856ef443af57c4d0c54972b, type: 3}
   - name: BossMelee
-    clip: {fileID: 8300000, guid: 4e589be29b24a52438e567e797dbfe99, type: 3}
+    clip: {fileID: 8300000, guid: 609035d2a07247f4688e4248653bd192, type: 3}
   - name: Dead
     clip: {fileID: 8300000, guid: d0474ccb8bf2ce94bb603149dfa1a871, type: 3}
   - name: BtnEffect
@@ -69,15 +69,13 @@ MonoBehaviour:
   - name: PowUpBtn
     clip: {fileID: 8300000, guid: 439c1e74cbeb27441957fba66c765f42, type: 3}
   - name: PowUpPicked
-    clip: {fileID: 8300000, guid: 677e60814bbaaf7418e6b56c1a8c652c, type: 3}
-  - name: PowUpSelection
     clip: {fileID: 8300000, guid: f2b7e836b0774b74e9e72ee21fb972f3, type: 3}
+  - name: PowUpSelection
+    clip: {fileID: 8300000, guid: ceabab3af8f9ae147aef601bfc150344, type: 3}
   - name: Win
     clip: {fileID: 8300000, guid: c31ec13f80d6b164db60442bfa33263b, type: 3}
   - name: Lose
-    clip: {fileID: 8300000, guid: 7a65af1813d20394ebbf34a29ed6f895, type: 3}
-  - name: BossExplode
-    clip: {fileID: 8300000, guid: e1fca9a37d20ba9428e731ac35128273, type: 3}
+    clip: {fileID: 8300000, guid: 329819e953f179442be58d7db6b3e17c, type: 3}
   musicSource: {fileID: 2626038546305737976}
   sfxSource: {fileID: 2626038546192521292}
 --- !u!1 &2626038546192521291

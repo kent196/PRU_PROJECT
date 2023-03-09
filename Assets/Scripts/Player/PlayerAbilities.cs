@@ -68,7 +68,7 @@ public class PlayerAbilities : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            AudioManager.Instance.PlaySFX("Fire");
+            AudioManager.Instance.PlaySFX("Fire", 0.1f);
             GameObject projectileShooting = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
             projectileShooting.GetComponent<Rigidbody2D>().velocity = GetAttackDirection() * projectileSpeed;
             projectileShooting.transform.Rotate(.0f, .0f, Mathf.Atan2(GetAttackDirection().y, GetAttackDirection().x) * Mathf.Rad2Deg);

@@ -128,13 +128,13 @@ public class BossBehaviour : MonoBehaviour
     void BossExplosion()
     {
         AudioManager.Instance.PauseMusic("Boss Round");
-        AudioManager.Instance.PlaySFX("BossExplode");
+        AudioManager.Instance.PlaySFX("BossExplode", 0.2f);
         StartCoroutine(Explosion());
     }
 
     public void BossMelee()
     {
-        AudioManager.Instance.PlaySFX("BossMelee");
+        AudioManager.Instance.PlaySFX("BossMelee", 0.2f);
 
     }
 
@@ -151,7 +151,7 @@ public class BossBehaviour : MonoBehaviour
     void BossDestroy()
     {
         AudioManager.Instance.PauseMusic("Boss Round");
-        AudioManager.Instance.PlaySFX("Win");
+        AudioManager.Instance.PlaySFX("Win", .5f);
         bossHB.SetActive(false);
         GameManager.Instance.Win();
         Destroy(gameObject);
