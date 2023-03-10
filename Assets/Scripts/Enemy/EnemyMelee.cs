@@ -61,7 +61,7 @@ public class EnemyMelee : MonoBehaviour
         }
         else if (this.gameObject.CompareTag("Skelly"))
         {
-            return 10;
+            return 15;
         }
         else
         {
