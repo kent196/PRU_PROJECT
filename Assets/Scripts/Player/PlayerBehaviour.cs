@@ -33,6 +33,8 @@ public class PlayerBehaviour : MonoBehaviour
         healthStats = new HealthStats(1000, 1000);
         health = healthStats.Health;
         maxHealth = healthStats.MaxHealth;
+        Health = health;
+        MaxHealth = maxHealth;
 
     }
 
