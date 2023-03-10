@@ -1,0 +1,27 @@
+fileFormatVersion: 2
+guid: cd023864c86fd3e4b8bc668a9409f010
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: cc34d0f3dc257a442819830b408c5322, type: 3}
+  missingFiles: []
+  errors:
+  - Could not generate asset path for '../../../../../../../Assets/Enjl-Top-Down
+    Dungeon Tileset/Enjl-Top-Down Dungeon Tileset/preview.png'
+  - 'Missing texture asset: ../../../../../../../Assets/Enjl-Top-Down Dungeon Tileset/Enjl-Top-Down
+    Dungeon Tileset/preview.png'
+  warnings: []
+  missingSortingLayers: []
+  missingLayers: []
+  missingTags: []
+  importerVersion: 13
+  pixelsPerUnit: 100
+  edgesPerEllipse: 32
+  numberOfObjectsImported: 2
+  useSpriteAtlas: 1
+  atlasWidth: 2048
+  atlasHeight: 2048

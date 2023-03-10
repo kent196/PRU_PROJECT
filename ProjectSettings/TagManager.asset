@@ -3,7 +3,34 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Arrow
+  - Goblin
+  - Orc
+  - Mummy
+  - Skelly
+  - EnemyAttackZone
+  - Boss
+  - Lightning
+  - PlayerHealthBar
+  - BossHealthBar
+  - PowerUpSelect
+  - SpawnManager
+  - UI
+  - BossAttackZone
+  - End UI
+  - GUI
+  - Pause Menu
+  - Confirm Box
+  - Footer
+  - WinUI
+  - Win
+  - Boot
+  - Sword
+  - Heart
+  - PowerUp
+  - DmgPopUp
+  - Settings
   layers:
   - Default
   - TransparentFX
@@ -11,10 +38,10 @@ TagManager:
   - Base
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Enemy
+  - Arrow
+  - Boss
   - 
   - 
   - 
@@ -38,6 +65,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Ground
+    uniqueID: 302111991
+    locked: 0
+  - name: Above
+    uniqueID: 1777282485
+    locked: 0
+  - name: Wall
+    uniqueID: 1242257159
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
@@ -49,4 +85,7 @@ TagManager:
     locked: 0
   - name: Layer 3
     uniqueID: 4189426099
+    locked: 0
+  - name: Top
+    uniqueID: 492435343
     locked: 0
