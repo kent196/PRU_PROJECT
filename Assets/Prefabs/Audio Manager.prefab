@@ -78,6 +78,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: c31ec13f80d6b164db60442bfa33263b, type: 3}
   - name: Lose
     clip: {fileID: 8300000, guid: 329819e953f179442be58d7db6b3e17c, type: 3}
+  - name: BossExplode
+    clip: {fileID: 8300000, guid: e1fca9a37d20ba9428e731ac35128273, type: 3}
   musicSource: {fileID: 2626038546305737976}
   sfxSource: {fileID: 2626038546192521292}
 --- !u!1 &2626038546192521291

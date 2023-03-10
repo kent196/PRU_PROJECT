@@ -103,7 +103,14 @@ public class PlayerBehaviour : MonoBehaviour
     public void Heal(int hp)
     {
         health += hp;
-        DmgPopUp.Create(this.transform.position, hp);
+        if (health > maxHealth)
+        {
+            health = maxHealth;
+            DmgPopUp.Create(this.transform.position, hp);
+            healthBar.SetHealth(health);
+        }
+        else
+            DmgPopUp.Create(this.transform.position, hp);
         healthBar.SetHealth(health);
     }
 
