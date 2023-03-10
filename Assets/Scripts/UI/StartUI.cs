@@ -2,13 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class StartUI : MonoBehaviour
 {
     public GameObject settingUI;
+    [SerializeField] Text bestTime;
     // Start is called before the first frame update
     private void Start()
     {
+        bestTime.text = PlayTimer.Instance.GetBestTime();
         settingUI = GameObject.FindWithTag("Settings");
         settingUI.SetActive(false);
     }
