@@ -36,16 +36,6 @@ public class PlayerAbilities : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            Damage += 10;
-            Debug.Log(Damage);
-        }
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            Damage -= 10;
-            Debug.Log(Damage);
-        }
         if (CanAttack())
         {
             AimAndShoot();
