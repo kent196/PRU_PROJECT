@@ -104,8 +104,8 @@ public class EnemyBehaviour : MonoBehaviour
         }
         else if (this.gameObject.CompareTag("Mummy"))
         {
-            health = 300;
-            maxHealth = 300;
+            health = 150;
+            maxHealth = 150;
         }
         else if (this.gameObject.CompareTag("Skelly"))
         {
