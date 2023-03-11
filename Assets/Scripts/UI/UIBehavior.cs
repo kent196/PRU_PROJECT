@@ -6,43 +6,39 @@ using UnityEngine.UI;
 public class UIBehavior : MonoBehaviour
 {
     public GameObject sm;
-    public Text
-        txtAtk,
-        txtSpd,
-        txtTime,
-        txtFinalTime,
-        txtBestTime,
-        txtHealthStat;
-    private int atk;
-    private float spd;
-    private int health, maxHealth;
+    public Text txtAtk, txtSpd, txtTime, txtFinalTime, txtBestTime;
+    private int attk, atk, health, maxHealth;
+    private float spd, aspd;
     private GameObject playerAbilities;
     private GameObject playerMovement;
-    private GameObject player;
+    [SerializeField] private GameObject playerBehaviour;
 
 
     private void Start()
     {
         playerAbilities = GameObject.FindGameObjectWithTag("Player");
         playerMovement = GameObject.FindGameObjectWithTag("Player");
-        player = GameObject.FindGameObjectWithTag("Player");
+        playerBehaviour = GameObject.FindGameObjectWithTag("Player");
 
-
+        health = playerBehaviour.GetComponent<PlayerBehaviour>().Health;
+        maxHealth = playerBehaviour.GetComponent<PlayerBehaviour>().MaxHealth;
         atk = playerAbilities.GetComponent<PlayerAbilities>().Damage;
         spd = playerMovement.GetComponent<PlayerMovement>().Speed;
         sm = GameObject.FindGameObjectWithTag("SpawnManager");
+        aspd = spd * 100;
         txtAtk.text = "Damage: " + atk.ToString();
-        txtSpd.text = "Speed: " + spd.ToString();
+        txtSpd.text = "Speed: " + aspd.ToString();
         txtTime.text = "" + PlayTimer.Instance.GetTime();
         txtBestTime.text = PlayTimer.Instance.GetBestTime();
-        Debug.Log(health.ToString() + "/" + maxHealth.ToString());
+        Debug.Log(health + "/" + maxHealth);
     }
     private void Update()
     {
         atk = playerAbilities.GetComponent<PlayerAbilities>().Damage;
         spd = playerMovement.GetComponent<PlayerMovement>().Speed;
+        aspd = spd * 100;
         txtAtk.text = "Damage: " + atk.ToString();
-        txtSpd.text = "Speed: " + spd.ToString();
+        txtSpd.text = "Speed: " + aspd.ToString();
         txtTime.text = "" + PlayTimer.Instance.GetTime();
         txtFinalTime.text = "" + PlayTimer.Instance.GetTime();
         txtHealthStat.text = health.ToString() + "/" + maxHealth.ToString();
