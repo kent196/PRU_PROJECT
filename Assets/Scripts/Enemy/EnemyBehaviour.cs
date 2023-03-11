@@ -64,9 +64,7 @@ public class EnemyBehaviour : MonoBehaviour
         if (healthStats.Health <= 0)
         {
             col.isTrigger = true;
-
             anim.SetBool("Dead", true);
-
         }
     }
 
@@ -94,23 +92,23 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (this.gameObject.CompareTag("Goblin"))
         {
-            health = 200;
-            maxHealth = 200;
+            health = 300;
+            maxHealth = 300;
         }
         else if (this.gameObject.CompareTag("Orc"))
         {
-            health = 400;
-            maxHealth = 400;
+            health = 500;
+            maxHealth = 500;
         }
         else if (this.gameObject.CompareTag("Mummy"))
         {
-            health = 150;
-            maxHealth = 150;
+            health = 200;
+            maxHealth = 200;
         }
         else if (this.gameObject.CompareTag("Skelly"))
         {
-            health = 100;
-            maxHealth = 100;
+            health = 150;
+            maxHealth = 150;
         }
     }
 }

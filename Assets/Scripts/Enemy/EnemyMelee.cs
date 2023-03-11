@@ -53,7 +53,7 @@ public class EnemyMelee : MonoBehaviour
         }
         else if (this.gameObject.CompareTag("Orc"))
         {
-            return 50;
+            return 70;
         }
         else if (this.gameObject.CompareTag("Mummy"))
         {

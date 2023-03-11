@@ -33,7 +33,7 @@ public class PlayerBehaviour : MonoBehaviour
         healthStats = new HealthStats(1000, 1000);
         health = healthStats.Health;
         maxHealth = healthStats.MaxHealth;
-
+        Debug.Log("lay dc");
     }
 
     // Update is called once per frame
