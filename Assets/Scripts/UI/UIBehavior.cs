@@ -6,22 +6,22 @@ using UnityEngine.UI;
 public class UIBehavior : MonoBehaviour
 {
     public GameObject sm;
-    public Text txtAtk, txtSpd, txtTime, txtFinalTime, txtBestTime;
+    public Text txtAtk, txtSpd, txtTime, txtFinalTime, txtBestTime, txtHealthStat;
     private int attk, atk, health, maxHealth;
     private float spd, aspd;
     private GameObject playerAbilities;
     private GameObject playerMovement;
-    [SerializeField] private GameObject playerBehaviour;
+    private GameObject player;
 
 
     private void Start()
     {
         playerAbilities = GameObject.FindGameObjectWithTag("Player");
         playerMovement = GameObject.FindGameObjectWithTag("Player");
-        playerBehaviour = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Player");
 
-        health = playerBehaviour.GetComponent<PlayerBehaviour>().Health;
-        maxHealth = playerBehaviour.GetComponent<PlayerBehaviour>().MaxHealth;
+        health = player.GetComponent<PlayerBehaviour>().Health;
+        maxHealth = player.GetComponent<PlayerBehaviour>().MaxHealth;
         atk = playerAbilities.GetComponent<PlayerAbilities>().Damage;
         spd = playerMovement.GetComponent<PlayerMovement>().Speed;
         sm = GameObject.FindGameObjectWithTag("SpawnManager");
