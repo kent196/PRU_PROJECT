@@ -28,7 +28,8 @@ public class SpawnManager : MonoBehaviour
         playerBehavior,
         imgBoot,
         imgSword,
-        imgHeart;
+        imgHeart,
+        imgShield;
 
     private Wave currentWave;
     private int currentWaveNumber;
@@ -39,6 +40,8 @@ public class SpawnManager : MonoBehaviour
 
     private void Start()
     {
+        imgShield = GameObject.FindGameObjectWithTag("Shield");
+        imgShield.SetActive(false);
         imgBoot = GameObject.FindGameObjectWithTag("Boot");
         imgBoot.SetActive(false);
         imgSword = GameObject.FindGameObjectWithTag("Sword");

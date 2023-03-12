@@ -14,7 +14,9 @@ public class BossBehaviour : MonoBehaviour
     Animator anim;
     Collider2D col;
     private GameObject bossHB;
-    public GameObject victoryUI;
+    public GameObject
+        victoryUI,
+        imgShield;
 
 
     int health, maxHealth;
@@ -34,6 +36,7 @@ public class BossBehaviour : MonoBehaviour
     {
 
         bossHB = GameObject.FindWithTag("Footer");
+        imgShield = GameObject.FindWithTag("Shield");
         BossHealth();
         healthBar = GameObject.FindGameObjectWithTag("BossHealthBar").GetComponent<HealthBar>();
         vulnerableTime = timer;
@@ -69,6 +72,7 @@ public class BossBehaviour : MonoBehaviour
             {
                 if (shieldHitCount == 0)
                 {
+                    imgShield.SetActive(false);
                     anim.SetTrigger("BarrierBreak");
                 }
                 anim.SetTrigger("Hit");
@@ -80,6 +84,7 @@ public class BossBehaviour : MonoBehaviour
             else
             {
                 Instantiate(barrier, transform.position, Quaternion.identity);
+                imgShield.SetActive(true);
                 shieldHitCount--;
                 Debug.Log(shieldHitCount);
             }
