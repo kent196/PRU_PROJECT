@@ -18,6 +18,7 @@ public class BossBehaviour : MonoBehaviour
         victoryUI,
         imgShield;
 
+    private SpawnManager sm;
 
     int health, maxHealth;
 
@@ -34,9 +35,9 @@ public class BossBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        imgShield = GameObject.FindGameObjectWithTag("Shield");
+        imgShield.SetActive(false);
         bossHB = GameObject.FindWithTag("Footer");
-        imgShield = GameObject.FindWithTag("Shield");
         BossHealth();
         healthBar = GameObject.FindGameObjectWithTag("BossHealthBar").GetComponent<HealthBar>();
         vulnerableTime = timer;
@@ -64,6 +65,8 @@ public class BossBehaviour : MonoBehaviour
         Dead();
     }
 
+
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Arrow"))
@@ -72,7 +75,6 @@ public class BossBehaviour : MonoBehaviour
             {
                 if (shieldHitCount == 0)
                 {
-                    imgShield.SetActive(false);
                     anim.SetTrigger("BarrierBreak");
                 }
                 anim.SetTrigger("Hit");
@@ -84,7 +86,6 @@ public class BossBehaviour : MonoBehaviour
             else
             {
                 Instantiate(barrier, transform.position, Quaternion.identity);
-                imgShield.SetActive(true);
                 shieldHitCount--;
                 Debug.Log(shieldHitCount);
             }
@@ -95,13 +96,16 @@ public class BossBehaviour : MonoBehaviour
 
     bool Vulnerable()
     {
+
         if (shieldHitCount <= 0)
         {
             anim.SetBool("Vulnerable", isVulnerable);
+            imgShield.SetActive(false);
             return true;
         }
         else
         {
+            imgShield.SetActive(true);
             isVulnerable = false;
             return false;
         }

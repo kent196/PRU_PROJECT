@@ -22,7 +22,8 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private Transform spawnPointFinalWave;
     [SerializeField] private Animator animator;
     [SerializeField] private Text waveName;
-    private GameObject
+    [SerializeField]
+    public GameObject
         playerAbilities,
         playerMovement,
         playerBehavior,
@@ -40,8 +41,7 @@ public class SpawnManager : MonoBehaviour
 
     private void Start()
     {
-        imgShield = GameObject.FindGameObjectWithTag("Shield");
-        imgShield.SetActive(false);
+
         imgBoot = GameObject.FindGameObjectWithTag("Boot");
         imgBoot.SetActive(false);
         imgSword = GameObject.FindGameObjectWithTag("Sword");
@@ -79,6 +79,7 @@ public class SpawnManager : MonoBehaviour
             }
         }
     }
+
 
     GameObject[] FindGameObjectsInLayer(int layer)
     {
@@ -136,7 +137,7 @@ public class SpawnManager : MonoBehaviour
         AudioManager.Instance.PlaySFX("PowUpPicked", .8f);
         imgHeart.SetActive(true);
         playerBehavior.GetComponent<PlayerBehaviour>().MaxHealthBuff(500);
-        playerBehavior.GetComponent<PlayerBehaviour>().Heal(150);
+        playerBehavior.GetComponent<PlayerBehaviour>().Heal(300);
         Debug.Log(playerAbilities.GetComponent<PlayerBehaviour>().MaxHealth);
         animator.SetBool("isPowerUpPicked", true);
         GameManager.Instance.PowerUpSelected();
